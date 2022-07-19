@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Email Verification</title>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: Verdana, Geneva, Tahoma, sans-serif;
+				font-size: 16px;
+				line-height: 1.4;
+				margin: 0;
+				padding: 0;
+			}
+
+			header {
+				background-color: cornflowerblue;
+				padding: 1em 2em;
+				text-align: center;
+				font-size: x-large;
+				font-weight: bold;
+			}
+
+			.header-link {
+				padding: 0.75em 1.5em;
+				background-color: cornflowerblue;
+				color: #fff;
+				border: none;
+				text-decoration: none;
+				margin-bottom: 1em;
+			}
+
+			main {
+				padding: 1em 2em;
+			}
+
+			.title {
+				font-weight: bold;
+				text-align: center;
+				margin-bottom: 1em;
+				color: cornflowerblue;
+			}
+
+			.notify {
+				color: steelblue;
+				text-align: center;
+				font-size: large;
+			}
+
+			.warning {
+				font-size: large;
+				text-align: center;
+				margin-bottom: 0.5em;
+				color: rgb(221, 68, 51);
+			}
+
+			em {
+				color: slateblue;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a
+				class="header-link"
+				href="<%= home %>"
+				target="_blank"
+				rel="noopener noreferrer"
+				>Weeb Forum</a
+			>
+		</header>
+		<main>
+			<h1 class="title">Email Verification</h1>
+
+			<p class="notify">
+				This mail is for email verification purpose. You're just one step away
+				from becoming a member and able to login.
+			</p>
+
+			<p>
+				Konnichiwa, fellow Otaku: <em><strong><%= name %></strong></em>
+			</p>
+
+			<p>
+				<em><strong>Your OTP:</strong> <%= OTP %></em>
+			</p>
+
+			<p>
+				Thanking You <br />
+				Your Tomo, <br />
+				MailBot-kun 🤖
+			</p>
+
+			<p class="warning">
+				<strong>Warning:</strong> Please don't share this OTP to anyone!
+			</p>
+			<p class="warning">
+				<strong>Warning:</strong> This OTP will expire in 1 hour!
+			</p>
+			<p class="warning">
+				<strong>Disclaimer:</strong> Please don't reply to this email. This is a
+				system generated mail. You have received this mail because you're
+				registered in Weeb Forum.
+			</p>
+		</main>
+	</body>
+</html>

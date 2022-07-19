@@ -1,0 +1,1 @@
+export default (error: unknown): string | any => error instanceof Error ? error.message : error
