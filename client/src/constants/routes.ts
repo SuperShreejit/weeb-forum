@@ -1,10 +1,36 @@
-enum ROUTES {
-	//server base
-	FULL_SERVER_URL = 'http://localhost:5000/api/v1',
-	SERVER_URL_BASE = '/api/v1',
-
+export enum CLIENT_ROUTES {
 	//client
-	FULL_CLIENT_URL = 'http://localhost:3000',
+	FULL_CLIENT = 'http://localhost:3000',
+
+	//misc
+	LANDING = '/',
+	FORBIDDEN = '/forbidden',
+	PAGE_NOT_FOUND = '*',
+
+	//auth
+	REGISTER = '/register',
+	LOGIN = '/login',
+	VERIFY_EMAIL = '/verify-email',
+	FORGOT_PASSWORD = '/forgot-password',
+	AUTH_BASE = '/users',
+
+	//posts
+	CREATE_POST = 'posts/create',
+	VIEW_POST = 'posts/:postId',
+	EDIT_POST = 'posts/edit/:postId',
+
+	//users
+	TIMELINE = 'timeline',
+	SEARCH = 'search',
+	PROFILE = 'profile',
+	SETTINGS = 'settings',
+	NOTIFICATIONS = 'notifications',
+}
+
+export enum SERVER_ROUTES {
+	//base
+	SERVER_BASE = 'http://localhost:5000',
+	SERVER_URL_BASE = '/api/v1',
 
 	//auth
 	AUTH_BASE = '/auth',
@@ -40,18 +66,4 @@ enum ROUTES {
 	DISLIKE_POST = '/dislike-post/:userId/:postId',
 	LIKE_COMMENT = '/like-comment/:userId/:commentId',
 	DISLIKE_COMMENT = '/dislike-comment/:userId/:commentId',
-
-	//misc
-	TEST_BASE = '/test',
-	NOT_FOUND = '/*',
-	HELLO_WORLD = '/welcome',
-	TEST_EMAIL_VERIFY = '/email-verify',
-	TEST_RESET_PASSWORD = '/reset-password',
-	TEST_DEACTIVATE = '/deactivate',
-	TEST_ERROR1 = '/error1',
-	TEST_ERROR2 = '/error2',
-	TEST_ERROR3 = '/error3',
-
-	//add as you build
 }
-export default ROUTES
