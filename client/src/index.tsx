@@ -4,6 +4,7 @@ import App from './components/App'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Provider } from 'react-redux'
 import store from './lib/redux/store'
+import './sass/index.scss'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 const queryClient = new QueryClient()

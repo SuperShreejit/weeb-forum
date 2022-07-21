@@ -4,3 +4,6 @@ export enum CONTAINER_CLASS {
 }
 
 export const LOADING_TEXT = 'Loading'
+
+export const NAVBAR_CLASS = 'navbar'
+export const SIDEBAR_CLASS = 'sidebar'

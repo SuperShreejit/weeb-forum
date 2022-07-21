@@ -16,6 +16,8 @@ import Profile from '../pages/Profile'
 import UserSettings from '../pages/UserSettings'
 import Search from '../pages/Search'
 import Notifications from '../pages/Notifications'
+import PrivacyPolicy from '../pages/PrivacyPolicy'
+import TermsConditions from '../pages/TermsConditions'
 
 const App = () => (
 	<Router>
@@ -38,6 +40,8 @@ const App = () => (
 				<Route path={CLIENT_ROUTES.SEARCH} element={<Search />} />
 				<Route path={CLIENT_ROUTES.NOTIFICATIONS} element={<Notifications />} />
 			</Route>
+			<Route path={CLIENT_ROUTES.PRIVACY_POLICY} element={<PrivacyPolicy />} />
+			<Route path={CLIENT_ROUTES.TERMS_CONDITIONS} element={<TermsConditions />} />
 			<Route path={CLIENT_ROUTES.FORBIDDEN} element={<Forbidden />} />
 			<Route path={CLIENT_ROUTES.PAGE_NOT_FOUND} element={<PageNotFound />} />
 		</Routes>

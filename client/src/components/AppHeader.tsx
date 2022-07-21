@@ -15,7 +15,7 @@ import { PARAGRAPH_VARIANT } from '../constants/paragraph'
 import ERRORS from '../constants/errors'
 
 const AppHeader = () => {
-	const { isAuth, logout, user, res } = useAuth()
+	const { isAuth, logout, user, image, res } = useAuth()
 	const { navigateToSignUp } = useNavigation()
 
 	if (!isAuth)
@@ -34,29 +34,24 @@ const AppHeader = () => {
 		return (
 			<header className={APP_HEADER_CLASS}>
 				<Title />
-				<div className={CONTAINER_CLASS.FLEX}>
-					<Loading />
-					<Button
-						label={BUTTON_LABELS.LOGOUT}
-						variant={BUTTON_VARIANT.SECONDARY_BORDER_ROUNDED}
-						onClick={logout}
-					/>
-				</div>
+				<Loading />
 			</header>
-    )
-  
-  if (res.isError || !user || !user.avatarId || !user.avatarId.mimeType || !user.avatarId.avatar)
-    return (
+		)
+
+	if (
+		res.isError ||
+		!user ||
+		!user.avatarId ||
+		!image.mimeType ||
+		!image.buffer
+	)
+		return (
 			<header className={APP_HEADER_CLASS}>
 				<Title />
-				<div className={CONTAINER_CLASS.FLEX}>
-					<Paragraph variant={PARAGRAPH_VARIANT.REGULAR} text={ERRORS.FETCH_USER_FAILED}/>
-					<Button
-						label={BUTTON_LABELS.LOGOUT}
-						variant={BUTTON_VARIANT.SECONDARY_BORDER_ROUNDED}
-						onClick={logout}
-					/>
-				</div>
+				<Paragraph
+					variant={PARAGRAPH_VARIANT.REGULAR}
+					text={ERRORS.FETCH_USER_FAILED}
+				/>
 			</header>
 		)
 
@@ -66,12 +61,12 @@ const AppHeader = () => {
 			<div className={CONTAINER_CLASS.FLEX}>
 				<div className={CONTAINER_CLASS.FLEX}>
 					<ProfileImage
-						image={{ mimeType: user?.avatarId?.mimeType, buffer: user?.avatarId?.avatar }}
+						image={image}
 						to={`${CLIENT_ROUTES.AUTH_BASE}/${CLIENT_ROUTES.PROFILE}`}
-						username={'username'}
+						username={user.username}
 					/>
 					<NavLink
-						label={'username'}
+						label={user.username}
 						variant={LINK_VARIANT.CAPTION_LINK}
 						to={`${CLIENT_ROUTES.AUTH_BASE}/${CLIENT_ROUTES.PROFILE}`}
 					/>

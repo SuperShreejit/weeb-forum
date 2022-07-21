@@ -1,8 +1,17 @@
-import React from 'react'
+import BGImage from "./BGImage"
+import Info from "./Info"
+import Navbar from "./Navbar"
+import images from "../assets/images"
+import { SIDEBAR_CLASS } from "../constants/component"
+
 
 const Sidebar = () => {
   return (
-    <aside>Sidebar</aside>
+    <aside className={SIDEBAR_CLASS}>
+      <BGImage source={images.sidebarImg} />
+      <Navbar />
+      <Info/>
+    </aside>
   )
 }
 

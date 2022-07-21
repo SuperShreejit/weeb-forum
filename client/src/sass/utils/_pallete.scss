@@ -1,0 +1,35 @@
+// Dark theme
+$dark: (
+	$primary: #56cbf9,
+	$on-primary: #f9f9f9,
+	$accent: #7d53de,
+	$on-accent: #f9f9f9,
+	$secondary: #e1eff6,
+	$on-secondary: #022f40,
+	$neutral: #071108,
+	$on-neutral: #d5cad6,
+	$danger: #ba1200,
+	$danger-surface: #ffc2bb,
+	$success: #008f39,
+	$success-surface: #bbffde,
+	$border-shadow: rgba(0, 0, 0, 0.25),
+	$google: #67a0ff,
+);
+
+//Light Theme
+$light: (
+	$primary: #56cbf9,
+	$on-primary: #f9f9f9,
+	$accent: #7d53de,
+	$on-accent: #f9f9f9,
+	$secondary: #022f40,
+	$on-secondary: #e1eff6,
+	$neutral: #ffffff,
+	$on-neutral: #0a090c,
+	$danger: #ba1200,
+	$danger-surface: #ffc2bb,
+	$success: #008f39,
+	$success-surface: #bbffde,
+	$border-shadow: rgba(255, 255, 255, 0.25),
+	$google: #67a0ff,
+);

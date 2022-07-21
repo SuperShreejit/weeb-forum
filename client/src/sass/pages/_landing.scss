@@ -1,0 +1,13 @@
+@use '../utils/variables' as const;
+@import '../utils/theme';
+
+.landing-container {
+	@include theme-provider(false);
+	@if $isDark {
+		background-color: red;
+	}
+}
+
+.dark {
+	@include theme-provider(true);
+}

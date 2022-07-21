@@ -1,12 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState, AppDispatch } from '../lib/redux/store'
 import { AuthState } from '../lib/redux/features/auth.slice'
-import { useCallback } from 'react'
+import { useCallback, useMemo } from 'react'
 import { logoutUser } from '../lib/redux/features/auth.slice'
 import { useQuery, QueryFunction } from '@tanstack/react-query'
 import { QUERIES } from '../constants/queries'
-import axios from 'axios'
 import { SERVER_ROUTES } from '../constants/routes'
+import axiosServer from '../lib/axios'
 
 type UserType =
 	| {
@@ -25,8 +25,8 @@ type UserType =
 	| undefined
 
 const fetchUser: QueryFunction<UserType> = ({ queryKey }) => {
-	const url = `${SERVER_ROUTES.SERVER_BASE}${SERVER_ROUTES.SERVER_URL_BASE}${SERVER_ROUTES.USERS_BASE}\\${queryKey[1]}`
-	return axios.get(url)
+	const url = `${SERVER_ROUTES.USERS_BASE}\\${queryKey[1]}`
+	return axiosServer.get(url)
 }
 
 const useAuth = () => {
@@ -38,9 +38,18 @@ const useAuth = () => {
 		fetchUser,
 	)
 
+	const image = useMemo(() => {
+		if (res.isLoading || res.isError || !res.data?.avatarId) return {}
+		
+		return {
+			mimeType: res.data?.avatarId.mimeType,
+			buffer: res.data?.avatarId.avatar
+		}
+	}, [res])
+
 	const logout = useCallback(() => dispatch(logoutUser()), [dispatch])
 
-	return { ...auth, logout, user: res?.data, res }
+	return { ...auth, logout, user: res?.data, image, res }
 }
 
 export default useAuth
