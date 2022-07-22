@@ -40,4 +40,4 @@ export enum HEADER_CLASSES {
 
 export const TITLE = 'WEEB ZONE'
 export const TITLE_CLASS = 'title'
-export const APP_HEADER_CLASS = 'header'
+export const APP_HEADER_CLASS = 'app-header'

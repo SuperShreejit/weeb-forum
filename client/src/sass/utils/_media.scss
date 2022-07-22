@@ -1,0 +1,19 @@
+@import '../utils/variables';
+
+@mixin media-tablet {
+  @media screen and (min-width: $tablet-break){
+    @content;
+  }
+}
+
+@mixin media-laptop {
+  @media screen and (min-width: $laptop-break) {
+    @content;
+  }
+}
+
+@mixin media-desktop {
+  @media screen and (min-width: $desktop-break) {
+    @content;
+  }
+}

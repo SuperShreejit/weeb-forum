@@ -1,13 +1,11 @@
-@use '../utils/variables' as const;
-@import '../utils/theme';
+@import '../utils/flex';
+@import '../utils/pallete';
+@import '../utils/media';
 
 .landing-container {
-	@include theme-provider(false);
-	@if $isDark {
-		background-color: red;
-	}
+	background-color: light(neutral);
 }
 
 .dark {
-	@include theme-provider(true);
+	background-color: dark(neutral);
 }

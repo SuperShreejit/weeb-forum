@@ -1,0 +1,80 @@
+@import '../utils/media';
+@import '../utils/pallete';
+@import '../utils/typography';
+@import '../utils/variables';
+
+
+//light them - mobile first
+.primary-header {
+	color: light(primary);
+}
+
+.secondary-header {
+  color: light(secondary);
+}
+
+.large-header {
+  @include header(phone, large);
+}
+
+.medium-header {
+  @include header(phone, medium);
+}
+
+.small-header {
+  @include header(phone, small);
+}
+
+//dark theme
+.dark {
+  .primary-header {
+    color: dark(primary);
+	}
+  
+	.secondary-header {
+    color: dark(secondary);
+	}
+}
+
+//media queries
+@include media-tablet {
+  .large-header {
+    @include header(tablet, large);
+	}
+  
+	.medium-header {
+    @include header(tablet, medium);
+	}
+  
+	.small-header {
+    @include header(tablet, small);
+	}
+}
+
+@include media-laptop {
+  .large-header {
+    @include header(laptop, large);
+	}
+  
+	.medium-header {
+    @include header(laptop, medium);
+	}
+  
+	.small-header {
+    @include header(laptop, small);
+	}
+}
+
+@include media-desktop {
+  .large-header {
+    @include header(desktop, large);
+	}
+
+	.medium-header {
+		@include header(desktop, medium);
+	}
+
+	.small-header {
+    @include header(desktop, small);
+	}
+}

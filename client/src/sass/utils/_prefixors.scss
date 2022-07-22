@@ -1,0 +1,21 @@
+@mixin max-width-max-content {
+	max-width: -webkit-max-content;
+	max-width: -moz-max-content;
+	max-width: max-content;
+}
+
+@mixin border-radius ($radius) {
+	border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-o-border-radius: $radius;
+}
+
+@mixin transform-scale ($size) {
+	transform: scale($size);
+	-webkit-transform: scale($size);
+	-moz-transform: scale($size);
+	-ms-transform: scale($size);
+	-o-transform: scale($size);
+}

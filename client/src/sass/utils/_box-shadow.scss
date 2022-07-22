@@ -1,0 +1,33 @@
+@import '../utils/pallete';
+
+@mixin elevated-shadow($theme) {
+	@if $theme == 'light' {
+		box-shadow: 2px 4px 6px light(shadow);
+	} @else if $theme == 'dark' {
+		box-shadow: 2px 4px 6px dark(shadow);
+	}
+}
+
+@mixin low-elevated-shadow($theme) {
+	@if $theme == 'light' {
+		box-shadow: 0px 2px 4px light(shadow);
+	} @else if $theme == 'dark' {
+		box-shadow: 0px 2px 4px dark(shadow);
+	}
+}
+
+@mixin ambience-shadow($theme) {
+	@if $theme == 'light' {
+		box-shadow: 2px 2px 4px light(shadow);
+	} @else if $theme == 'dark' {
+		box-shadow: 2px 2px 4px dark(shadow);
+	}
+}
+
+@mixin elevated-highlight-shadow($theme) {
+	@if $theme == 'light' {
+		box-shadow: 2px 4px 4px light(shadow), inset 1px 2px 2px light('highlight');
+	} @else if $theme == 'dark' {
+		box-shadow: 2px 4px 4px dark(shadow), inset 1px 2px 2px dark('highlight');
+	}
+}

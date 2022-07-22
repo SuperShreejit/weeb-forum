@@ -19,10 +19,10 @@ export enum BUTTON_VARIANT {
 
 export enum BUTTON_CLASSES {
 	BASE = 'btn',
-	ELEVATED_ROUNDED = 'elevated-rounded',
-	BORDER_ROUNDED = 'bordered-rounded',
-	TRANSPARENT = 'transparent',
-	HIGHLIGHTED_ROUNDED = 'highlighted-rounded',
+	ELEVATED_ROUNDED = 'elevated-rounded-btn',
+	BORDER_ROUNDED = 'bordered-rounded-btn',
+	TRANSPARENT = 'transparent-btn',
+	HIGHLIGHTED_ROUNDED = 'highlighted-rounded-btn',
 	PRIMARY = 'primary-btn',
 	SECONDARY = 'secondary-btn',
 	ACCENT = 'accent-btn',

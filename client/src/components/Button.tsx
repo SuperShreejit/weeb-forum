@@ -3,6 +3,7 @@ import {
 	BUTTON_LABELS,
 	BUTTON_VARIANT,
 } from '../constants/button'
+import '../sass/components/_buttons.scss'
 
 type ButtonProps = JSX.IntrinsicElements['button'] & {
 	variant: BUTTON_VARIANT

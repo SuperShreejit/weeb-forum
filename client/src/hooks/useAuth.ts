@@ -33,17 +33,14 @@ const useAuth = () => {
 	const auth = useSelector<RootState, AuthState>(store => store.auth)
 	const dispatch = useDispatch<AppDispatch>()
 
-	const res = useQuery<UserType>(
-		[QUERIES.USER_PROFILE, auth.userId],
-		fetchUser,
-	)
+	const res = useQuery<UserType>([QUERIES.USER_PROFILE, auth.userId], fetchUser)
 
 	const image = useMemo(() => {
 		if (res.isLoading || res.isError || !res.data?.avatarId) return {}
-		
+
 		return {
 			mimeType: res.data?.avatarId.mimeType,
-			buffer: res.data?.avatarId.avatar
+			buffer: res.data?.avatarId.avatar,
 		}
 	}, [res])
 

@@ -1,3 +1,4 @@
+import '../sass/components/_headers.scss'
 import { HEADERS, HEADER_VARIANT, HEADER_CLASSES } from '../constants/header'
 
 type HeaderProps = (

@@ -1,3 +1,4 @@
+import '../sass/components/_paragraphs.scss'
 import {
 	PARAGRAPHS,
 	PARAGRAPH_CLASS,

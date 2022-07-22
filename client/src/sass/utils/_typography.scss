@@ -1,0 +1,128 @@
+@mixin title($media) {
+	font-family: 'KeroKero51BBx';
+	font-weight: 500;
+	letter-spacing: 1px;
+	text-align: center;
+
+	@if $media == 'phone' {
+		font-size: 2rem;
+	} @else if $media == 'tablet' {
+		font-size: 2.5rem;
+	} @else if $media == 'laptop' {
+		font-size: 3rem;
+	} @else if $media == 'desktop' {
+		font-size: 3rem;
+	}
+}
+
+@mixin header($media, $size) {
+	font-family: 'KeroKero51BBx';
+	font-weight: 500;
+	letter-spacing: 1px;
+	text-align: center;
+
+	@if $media == 'phone' {
+		@if $size == 'large' {
+			font-size: 1.5rem;
+		} @else if $size == 'medium' {
+			font-size: 1.25rem;
+		} @else if $size == 'small' {
+			font-size: 1rem;
+		}
+	} @else if $media == 'tablet' {
+		@if $size == 'large' {
+			font-size: 2.25rem;
+		} @else if $size == 'medium' {
+			font-size: 1.5rem;
+		} @else if $size == 'small' {
+			font-size: 1.25rem;
+		}
+	} @else if $media == 'laptop' {
+		@if $size == 'large' {
+			font-size: 2.25rem;
+		} @else if $size == 'medium' {
+			font-size: 1.75rem;
+		} @else if $size == 'small' {
+			font-size: 1.25rem;
+		}
+	} @else if $media == 'desktop' {
+		@if $size == 'large' {
+			font-size: 2.5rem;
+		} @else if $size == 'medium' {
+			font-size: 1.75rem;
+		} @else if $size == 'small' {
+			font-size: 1.25rem;
+		}
+	}
+}
+
+@mixin text($media, $size) {
+	font-family: 'ComicSansMS3';
+	line-height: 1.4;
+
+	@if $media == 'phone' {
+		@if $size == 'caption' {
+			font-size: 14px;
+		} @else if $size == 'paragraph' {
+			max-width: 40ch;
+			font-size: 0.75rem;
+		} @else if $size == 'label' {
+			font-family: 'COMIC';
+			text-transform: uppercase;
+			font-size: 0.75rem;
+		} @else if $size == 'input' {
+			font-size: 0.75rem;
+		} @else if $size == 'link' {
+			font-size: 0.75rem;
+			text-decoration: underline;
+		}
+	} @else if $media == 'tablet' {
+		@if $size == 'caption' {
+			font-size: 1rem;
+		} @else if $size == 'paragraph' {
+			max-width: 50ch;
+			font-size: 1rem;
+		} @else if $size == 'label' {
+			font-family: 'COMIC';
+			text-transform: uppercase;
+			font-size: 1rem;
+		} @else if $size == 'input' {
+			font-size: 1rem;
+		} @else if $size == 'link' {
+			font-size: 1rem;
+			text-decoration: underline;
+		}
+	} @else if $media == 'laptop' {
+		@if $size == 'caption' {
+			font-size: 1rem;
+		} @else if $size == 'paragraph' {
+			max-width: 60ch;
+			font-size: 1rem;
+		} @else if $size == 'label' {
+			font-family: 'COMIC';
+			text-transform: uppercase;
+			font-size: 1rem;
+		} @else if $size == 'input' {
+			font-size: 1rem;
+		} @else if $size == 'link' {
+			font-size: 1rem;
+			text-decoration: underline;
+		}
+	} @else if $media == 'desktop' {
+		@if $size == 'caption' {
+			font-size: 18px;
+		} @else if $size == 'paragraph' {
+			max-width: 70ch;
+			font-size: 1rem;
+		} @else if $size == 'label' {
+			font-family: 'COMIC';
+			text-transform: uppercase;
+			font-size: 1rem;
+		} @else if $size == 'input' {
+			font-size: 1rem;
+		} @else if $size == 'link' {
+			font-size: 1rem;
+			text-decoration: underline;
+		}
+	}
+}

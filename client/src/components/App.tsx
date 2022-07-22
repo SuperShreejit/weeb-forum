@@ -18,9 +18,11 @@ import Search from '../pages/Search'
 import Notifications from '../pages/Notifications'
 import PrivacyPolicy from '../pages/PrivacyPolicy'
 import TermsConditions from '../pages/TermsConditions'
+import AppHeader from './AppHeader'
 
 const App = () => (
 	<Router>
+		<AppHeader />
 		<Routes>
 			<Route path={CLIENT_ROUTES.LANDING} element={<Landing />} />
 			<Route path={CLIENT_ROUTES.REGISTER} element={<Register />} />
@@ -41,7 +43,10 @@ const App = () => (
 				<Route path={CLIENT_ROUTES.NOTIFICATIONS} element={<Notifications />} />
 			</Route>
 			<Route path={CLIENT_ROUTES.PRIVACY_POLICY} element={<PrivacyPolicy />} />
-			<Route path={CLIENT_ROUTES.TERMS_CONDITIONS} element={<TermsConditions />} />
+			<Route
+				path={CLIENT_ROUTES.TERMS_CONDITIONS}
+				element={<TermsConditions />}
+			/>
 			<Route path={CLIENT_ROUTES.FORBIDDEN} element={<Forbidden />} />
 			<Route path={CLIENT_ROUTES.PAGE_NOT_FOUND} element={<PageNotFound />} />
 		</Routes>

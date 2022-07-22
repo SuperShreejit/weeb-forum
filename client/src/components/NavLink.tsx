@@ -1,3 +1,4 @@
+import '../sass/components/_navlink.scss'
 import {
 	LINKS,
 	LINK_CLASS,

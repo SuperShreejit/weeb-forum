@@ -9,10 +9,15 @@ import { CONTAINER_CLASS } from '../constants/component'
 import { HEADERS, HEADER_VARIANT } from '../constants/header'
 import { DARK_CLASS, LANDING_CONTAINER_CLASS } from '../constants/pages'
 import { PARAGRAPHS, PARAGRAPH_VARIANT } from '../constants/paragraph'
+import useTheme from '../hooks/useTheme'
+
+const landingClass = (isDark: boolean) =>
+	`${LANDING_CONTAINER_CLASS} ${isDark ? DARK_CLASS : ''}`
 
 const Landing = () => {
+	const { isDark } = useTheme()
 	return (
-		<main className={`${LANDING_CONTAINER_CLASS} ${DARK_CLASS}`}>
+		<main className={landingClass(isDark)}>
 			<div className={CONTAINER_CLASS.FLEX_VERITICAL}>
 				<Header variant={HEADER_VARIANT.PRIMARY_H2} text={HEADERS.LANDING} />
 				<Paragraph

@@ -1,0 +1,198 @@
+@import '../utils/box-shadow';
+@import '../utils/pallete';
+@import '../utils/prefixors';
+@import '../utils/typography';
+@import '../utils/media';
+@import '../utils/variables';
+
+//light theme - mobile first
+.btn {
+	@include text(phone, caption);
+	padding: $btn-padding;
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
+
+.accent-btn {
+	color: light(on-accent);
+	background-color: light(accent);
+}
+
+.primary-btn {
+	color: light(on-primary);
+	background-color: light(primary);
+}
+
+.secondary-btn {
+	color: light(on-secondary);
+	background-color: light(secondary);
+}
+
+.danger-btn {
+	color: light(on-accent);
+	background-color: light(danger);
+}
+
+.highlighted-rounded-btn {
+	@include border-radius($btn-border-radius);
+	@include elevated-highlight-shadow(light);
+}
+
+.elevated-rounded-btn {
+	@include border-radius($btn-border-radius);
+	@include elevated-shadow(light);
+}
+
+.bordered-rounded-btn {
+	@include border-radius($btn-border-radius);
+	@include low-elevated-shadow(light);
+	background-color: transparent;
+	border: $btn-border;
+}
+.primary-btn.bordered-rounded-btn {
+	color: light(primary);
+}
+.accent-btn.bordered-rounded-btn {
+	color: light(accent);
+}
+.secondary-btn.bordered-rounded-btn {
+	color: light(secondary);
+}
+.danger-btn.bordered-rounded-btn {
+	color: light(danger);
+}
+
+.transparent-btn {
+	background-color: transparent;
+	font-weight: bold;
+}
+.primary-btn.transparent-btn {
+	color: light(primary);
+}
+.accent-btn.transparent-btn {
+	color: light(accent);
+}
+.secondary-btn.transparent-btn {
+	color: light(secondary);
+}
+.danger-btn.transparent-btn {
+	color: light(danger);
+}
+
+//dark theme
+.dark {
+	.accent-btn {
+		color: dark(on-accent);
+		background-color: dark(accent);
+	}
+
+	.primary-btn {
+		color: dark(on-primary);
+		background-color: dark(primary);
+	}
+
+	.secondary-btn {
+		color: dark(on-secondary);
+		background-color: dark(secondary);
+	}
+
+	.danger-btn {
+		color: dark(on-accent);
+		background-color: dark(danger);
+	}
+
+	.highlighted-rounded-btn {
+		@include elevated-highlight-shadow(dark);
+	}
+
+	.elevated-rounded-btn {
+		@include elevated-shadow(dark);
+	}
+
+	.bordered-rounded-btn {
+		background-color: transparent;
+		@include low-elevated-shadow(dark);
+	}
+
+	.primary-btn.bordered-rounded-btn {
+		color: dark(primary);
+	}
+	.accent-btn.bordered-rounded-btn {
+		color: dark(accent);
+	}
+	.secondary-btn.bordered-rounded-btn {
+		color: dark(secondary);
+	}
+	.danger-btn.bordered-rounded-btn {
+		color: dark(danger);
+	}
+
+	.primary-btn.transparent-btn {
+		color: dark(primary);
+	}
+	.accent-btn.transparent-btn {
+		color: dark(accent);
+	}
+	.secondary-btn.transparent-btn {
+		color: dark(secondary);
+	}
+	.danger-btn.transparent-btn {
+		color: dark(danger);
+	}
+}
+
+//pseudo seletors and pseudo classes
+@mixin button-hover-focus {
+	@include transform-scale(1.05);
+}
+
+@mixin button-active {
+	@include transform-scale(0.95);
+	box-shadow: none;
+}
+
+.highlighted-rounded-btn:hover,
+.highlighted-rounded-btn:focus,
+.elevated-rounded-btn:hover,
+.elevated-rounded-btn:focus,
+.bordered-rounded-btn:hover,
+.bordered-rounded-btn:focus,
+.transparent-btn:hover,
+.transparent-btn:focus {
+	@include button-hover-focus();
+}
+
+.highlighted-rounded-btn:active,
+.elevated-rounded-btn:active,
+.bordered-rounded-btn:active,
+.transparent-btn:active {
+	@include button-active();
+}
+
+.btn:disabled {
+	background-color: light(disabled);
+	color: light(on-disabled);
+	border: none;
+	box-shadow: none;
+	pointer-events: none;
+}
+
+//media queries
+@include media-tablet {
+	.btn {
+		@include text(tablet, caption);
+	}
+}
+
+@include media-laptop {
+	.btn {
+		@include text(laptop, caption);
+	}
+}
+
+@include media-desktop {
+	.btn {
+		@include text(desktop, caption);
+	}
+}

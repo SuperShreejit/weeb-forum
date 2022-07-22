@@ -1,0 +1,53 @@
+@import '../utils/typography';
+@import '../utils/pallete';
+@import '../utils/media';
+
+// light theme - mobile first
+.paragraph {
+	@include text(phone, paragraph);
+	color: light(on-neutral);
+}
+
+.caption {
+	@include text(phone, caption);
+	color: light(on-neutral);
+}
+
+//dark theme
+.dark {
+	.paragraph,
+	.caption {
+		color: dark(on-neutral);
+	}
+}
+
+//media queries
+@include media-tablet {
+  .paragraph {
+    @include text(tablet, paragraph);
+  }
+
+  .caption {
+    @include text(tablet, caption);
+  }
+}
+
+@include media-laptop {
+  .paragraph {
+    @include text(laptop, paragraph);
+  }
+
+  .caption {
+    @include text(laptop, caption);
+  }
+}
+
+@include media-desktop {
+  .paragraph {
+    @include text(desktop, paragraph);
+  }
+
+  .caption {
+    @include text(desktop, caption);
+  }
+}

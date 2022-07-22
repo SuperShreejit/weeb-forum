@@ -1,35 +1,51 @@
 // Dark theme
 $dark: (
-	$primary: #56cbf9,
-	$on-primary: #f9f9f9,
-	$accent: #7d53de,
-	$on-accent: #f9f9f9,
-	$secondary: #e1eff6,
-	$on-secondary: #022f40,
-	$neutral: #071108,
-	$on-neutral: #d5cad6,
-	$danger: #ba1200,
-	$danger-surface: #ffc2bb,
-	$success: #008f39,
-	$success-surface: #bbffde,
-	$border-shadow: rgba(0, 0, 0, 0.25),
-	$google: #67a0ff,
+	'primary': #56cbf9,
+	'on-primary': #f9f9f9,
+	'accent': #7d53de,
+	'on-accent': #f9f9f9,
+	'secondary': #e1eff6,
+	'on-secondary': #022f40,
+	'neutral': #071108,
+	'on-neutral': #d5cad6,
+	'danger': #ba1200,
+	'danger-surface': #ffc2bb,
+	'success': #008f39,
+	'success-surface': #bbffde,
+	'border': rgba(0, 0, 0, 0.25),
+	'shadow': rgba(255, 255, 255, 0.2),
+	'highlight': rgba(0, 0, 0, 0.2),
+	'google': #67a0ff,
+	'disabled': #ccc,
+	'on-disabled': #aaa,
+	);
+
+	//Light Theme
+	$light: (
+	'primary': #56cbf9,
+	'on-primary': #f9f9f9,
+	'accent': #7d53de,
+	'on-accent': #f9f9f9,
+	'secondary': #022f40,
+	'on-secondary': #e1eff6,
+	'neutral': #ffffff,
+	'on-neutral': #0a090c,
+	'danger': #ba1200,
+	'danger-surface': #ffc2bb,
+	'success': #008f39,
+	'success-surface': #bbffde,
+	'border': rgba(255, 255, 255, 0.25),
+	'shadow': rgba(0, 0, 0, 0.1),
+	'highlight': rgba(255, 255, 255, 0.3),
+	'google': #67a0ff,
+	'disabled': #ccc,
+	'on-disabled': #aaa,
 );
 
-//Light Theme
-$light: (
-	$primary: #56cbf9,
-	$on-primary: #f9f9f9,
-	$accent: #7d53de,
-	$on-accent: #f9f9f9,
-	$secondary: #022f40,
-	$on-secondary: #e1eff6,
-	$neutral: #ffffff,
-	$on-neutral: #0a090c,
-	$danger: #ba1200,
-	$danger-surface: #ffc2bb,
-	$success: #008f39,
-	$success-surface: #bbffde,
-	$border-shadow: rgba(255, 255, 255, 0.25),
-	$google: #67a0ff,
-);
+@function light($color) {
+	@return map-get($light, $color);
+}
+
+@function dark($color) {
+	@return map-get($dark, $color);
+}

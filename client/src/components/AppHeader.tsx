@@ -1,3 +1,4 @@
+import '../sass/components/_app-header.scss'
 import { BUTTON_LABELS, BUTTON_VARIANT } from '../constants/button'
 import { APP_HEADER_CLASS } from '../constants/header'
 import Button from './Button'
@@ -13,14 +14,20 @@ import Loading from './Loading'
 import Paragraph from './Paragraph'
 import { PARAGRAPH_VARIANT } from '../constants/paragraph'
 import ERRORS from '../constants/errors'
+import { DARK_CLASS } from '../constants/pages'
+import useTheme from '../hooks/useTheme'
+
+const header_class = (isDark: boolean) =>
+	`${APP_HEADER_CLASS} ${isDark ? DARK_CLASS : ''}`
 
 const AppHeader = () => {
 	const { isAuth, logout, user, image, res } = useAuth()
+	const { isDark } = useTheme()
 	const { navigateToSignUp } = useNavigation()
 
 	if (!isAuth)
 		return (
-			<header className={APP_HEADER_CLASS}>
+			<header className={header_class(isDark)}>
 				<Title />
 				<Button
 					label={BUTTON_LABELS.SIGN_UP}
@@ -32,7 +39,7 @@ const AppHeader = () => {
 
 	if (res.isLoading)
 		return (
-			<header className={APP_HEADER_CLASS}>
+			<header className={header_class(isDark)}>
 				<Title />
 				<Loading />
 			</header>
@@ -46,7 +53,7 @@ const AppHeader = () => {
 		!image.buffer
 	)
 		return (
-			<header className={APP_HEADER_CLASS}>
+			<header className={header_class(isDark)}>
 				<Title />
 				<Paragraph
 					variant={PARAGRAPH_VARIANT.REGULAR}
@@ -56,7 +63,7 @@ const AppHeader = () => {
 		)
 
 	return (
-		<header className={APP_HEADER_CLASS}>
+		<header className={header_class(isDark)}>
 			<Title />
 			<div className={CONTAINER_CLASS.FLEX}>
 				<div className={CONTAINER_CLASS.FLEX}>
