@@ -1,0 +1,23 @@
+@import '../utils/media';
+@import '../utils/prefixors';
+
+//theme doesn't matter
+//mobile first
+.bg-img-container {
+	max-width: 100%;
+	
+	.bg-img {
+		@include object-fit-position(cover, center);
+	}
+}
+
+.landing-1-img,
+.landing-2-img,
+.not-found-img,
+.forbidden-img,
+.sidebar,
+.auth,
+.create,
+.verify {
+	max-width: 100%;
+}

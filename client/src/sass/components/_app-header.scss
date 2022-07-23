@@ -1,0 +1,55 @@
+@import '../utils/flex';
+@import '../utils/media';
+@import '../utils/box-shadow';
+@import '../utils/border';
+@import '../utils/positions';
+@import '../utils/variables';
+
+//light theme - mobile first
+.app-header {
+	@include flex(row, center, center, 1em);
+	@include elevated-shadow(light);
+	@include border-bottom(light);
+	@include topbar-position();
+	background-color: light(neutral);
+	padding: $topbar-padding-mobile;
+
+	.btn,
+	.link {
+		display: none;
+	}
+}
+
+//dark theme
+.dark {
+	.app-header {
+		@include elevated-shadow(dark);
+		@include border-bottom(dark);
+		background-color: dark(neutral);
+	}
+}
+
+//media queries
+@include media-tablet {
+	.app-header {
+		@include flex(row, space-between, center, 1em);
+		padding: $topbar-padding-tablet;
+
+		.btn,
+		.link {
+			display: initial;
+		}
+	}
+}
+
+@include media-laptop {
+	.app-header {
+		padding: $topbar-padding-laptop;
+	}
+}
+
+@include media-desktop {
+	.app-header {
+		padding: $topbar-padding-desktop;
+	}
+}

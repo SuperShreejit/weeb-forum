@@ -10,9 +10,10 @@
 
 .flex-vertical {
 	@include flex(column, center, flex-start, 1em);
-	@include max-width-max-content();
+	@include width-max-content();
 }
 
 .flex {
-	@include flex(row, center, center, 1em);
+  @include flex(row, center, center, 1em);
+  @include width-max-content();
 }

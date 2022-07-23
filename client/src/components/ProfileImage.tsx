@@ -1,3 +1,4 @@
+import '../sass/components/_profile-img.scss'
 import generateImageSource, { ImageType } from '../helpers/generateImageSource'
 import {
 	PROFILE_IMAGE_CONTAINER_CLASS,

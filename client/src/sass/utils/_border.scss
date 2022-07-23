@@ -1,0 +1,10 @@
+@import '../utils/pallete';
+
+@mixin border-bottom ($theme) {
+  @if $theme == 'light' {
+    border-bottom: 1px solid light(border);
+  }
+  @else if $theme == 'dark' {
+    border-bottom: 1px solid dark(border);
+  }
+}

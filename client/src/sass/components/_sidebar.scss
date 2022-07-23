@@ -1,0 +1,75 @@
+@import '../utils/flex';
+@import '../utils/positions';
+@import '../utils/variables';
+@import '../utils/pallete';
+@import '../utils/media';
+@import '../utils/border';
+
+//light theme - mobile first
+.sidebar {
+  @include downbar-position();
+  background-color: light(neutral);
+  padding: $sidebar-padding-mobile;
+
+	.navbar {
+    background-color: inherit;
+		@include flex(row, center, center);
+	}
+
+	.bg-img-container, .flex-vertical {
+		display: none;
+	}
+}
+
+//dark theme
+.dark {
+  .sidebar {
+    background-color: dark(neutral);
+  }
+}
+
+//media queries
+@include media-tablet {
+  .sidebar {
+    width: 20vw;
+    padding: $sidebar-padding-tablet;
+    @include sidebar-position($sidebar-top-tablet);
+    @include flex(column, flex-start, center, 1em);
+
+    .navbar {
+      justify-self: stretch;
+      @include flex(column, center, center, 1em);
+      @include border-bottom(light);
+    }
+
+    .sidebar-img {
+      width: 100%;
+    }
+
+    .bg-img-container, .flex-vertical {
+      display: initial;
+    }
+
+    .flex-vertical {
+      width: 100%;
+      justify-self: end;
+    }
+  }
+
+  .dark {
+    .navbar {
+      @include border-bottom(dark);
+    }
+  }
+}
+
+@include media-laptop {
+  .sidebar {
+    padding: $sidebar-padding-laptop;
+    @include sidebar-position($sidebar-top-laptop);
+  }
+}
+
+@include media-desktop {
+
+}

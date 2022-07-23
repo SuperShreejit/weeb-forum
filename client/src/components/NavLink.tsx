@@ -6,7 +6,7 @@ import {
 	LINK_VARIANT,
 } from '../constants/links'
 import { Link, LinkProps } from 'react-router-dom'
-import { MdHomeFilled, MdNotifications, MdSettings } from 'react-icons/md'
+import { MdHomeFilled, MdNotifications, MdSettings, MdSearch } from 'react-icons/md'
 import { FaFeatherAlt, FaUserCircle } from 'react-icons/fa'
 
 type NavLinkProp = LinkProps & {
@@ -23,35 +23,42 @@ const NavLink = ({ variant, label, to, ...rest }: NavLinkProp) => {
 					to={to}
 					{...rest}
 				>
-					<MdHomeFilled />
+					<MdHomeFilled size={'2em'} />
 					<span className={LINK_LABEL_CLASS}>{label}</span>
 				</Link>
 			)
 		case LINK_VARIANT.NAV_LINK_ALERTS:
 			return (
 				<Link className={LINK_CLASS.NAV_LINK} to={to} {...rest}>
-					<MdNotifications />
+					<MdNotifications size={'2em'} />
 					<span className={LINK_LABEL_CLASS}>{label}</span>
 				</Link>
 			)
 		case LINK_VARIANT.NAV_LINK_COMPOSE:
 			return (
 				<Link className={LINK_CLASS.NAV_LINK} to={to} {...rest}>
-					<FaFeatherAlt />
+					<FaFeatherAlt size={'2em'} />
+					<span className={LINK_LABEL_CLASS}>{label}</span>
+				</Link>
+			)
+		case LINK_VARIANT.NAV_LINK_SEARCH:
+			return (
+				<Link className={LINK_CLASS.NAV_LINK} to={to} {...rest}>
+					<MdSearch size={'2em'} />
 					<span className={LINK_LABEL_CLASS}>{label}</span>
 				</Link>
 			)
 		case LINK_VARIANT.NAV_LINK_PROFILE:
 			return (
 				<Link className={LINK_CLASS.NAV_LINK} to={to} {...rest}>
-					<FaUserCircle />
+					<FaUserCircle size={'2em'} />
 					<span className={LINK_LABEL_CLASS}>{label}</span>
 				</Link>
 			)
 		case LINK_VARIANT.NAV_LINK_SETTINGS:
 			return (
 				<Link className={LINK_CLASS.NAV_LINK} to={to} {...rest}>
-					<MdSettings />
+					<MdSettings size={'2em'} />
 					<span className={LINK_LABEL_CLASS}>{label}</span>
 				</Link>
 			)

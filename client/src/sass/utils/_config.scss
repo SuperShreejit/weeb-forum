@@ -1,4 +1,5 @@
 @import './fonts';
+@import '../utils/pallete';
 
 *,
 *::before,
@@ -10,4 +11,9 @@
 
 li {
   list-style: none;
+}
+
+//dark theme
+.dark {
+	background-color: dark(neutral);
 }

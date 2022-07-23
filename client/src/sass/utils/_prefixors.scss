@@ -1,7 +1,7 @@
-@mixin max-width-max-content {
-	max-width: -webkit-max-content;
-	max-width: -moz-max-content;
-	max-width: max-content;
+@mixin width-max-content {
+	width: -webkit-max-content;
+	width: -moz-max-content;
+	width: max-content;
 }
 
 @mixin border-radius ($radius) {
@@ -18,4 +18,19 @@
 	-moz-transform: scale($size);
 	-ms-transform: scale($size);
 	-o-transform: scale($size);
+}
+
+@mixin transform-translate ($x, $y, $z: 0) {
+	transform: translate($x, $y, $z);
+	-webkit-transform: translate($x, $y, $z);
+	-moz-transform: translate($x, $y, $z);
+	-ms-transform: translate($x, $y, $z);
+	-o-transform: translate($x, $y, $z);
+}
+
+@mixin object-fit-position ($fit, $position) {
+	-o-object-fit: $fit;
+		   object-fit: $fit;
+		-o-object-position: $position;
+		   object-position: $position;
 }

@@ -1,11 +1,85 @@
 @import '../utils/flex';
 @import '../utils/pallete';
 @import '../utils/media';
+@import '../utils/variables';
+@import '../utils/prefixors';
 
+//light theme - mobile first
 .landing-container {
 	background-color: light(neutral);
+	padding: $landing-padding-mobile;
+	padding-top: $topbar-height-mobile;
+	display: grid;
+	grid-template-areas:
+		'bg-img-1'
+		'text'
+		'bg-img-2';
+	justify-content: center;
+	align-items: center;
+	gap: 1em;
+
+	.landing-1-img {
+		grid-area: bg-img-1;
+	}
+	.flex-vertical {
+		grid-area: text;
+		width: 100%;
+		padding: 0 1em;
+	}
+	.landing-2-img {
+		grid-area: bg-img-2;
+	}
 }
 
-.dark {
-	background-color: dark(neutral);
+
+
+//media queries
+@include media-tablet {
+	.landing-container {
+		padding: $landing-padding-tablet;
+		padding-top: $topbar-height-tablet;
+		place-items: center;
+	}
+}
+
+@include media-laptop {
+	.landing-container {
+		padding: $landing-padding-laptop;
+		padding-top: $topbar-height-laptop;
+		grid-template-areas:
+			'text bg-img-1 bg-img-1'
+			'bg-img-2 bg-img-1 bg-img-1';
+
+		.landing-1-img {
+			height: 100%;
+			width: 60vw;
+
+			.bg-img {
+				height: 100%;
+				width: 100%;
+				@include object-fit-position(fill, center);
+			}
+		}
+
+		.landing-2-img {
+			width: 80%;
+		}
+
+		.flex-vertical {
+			.large-header {
+				text-align: left;
+			}
+		}
+	}
+}
+
+@include media-desktop {
+	.landing-container {
+		padding: $landing-padding-desktop;
+		padding-top: $topbar-height-desktop;
+
+		.landing-2-img {
+			width: 90%;
+		}
+	}
 }

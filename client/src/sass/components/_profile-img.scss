@@ -1,0 +1,12 @@
+@import '../utils/prefixors';
+
+//themes and media are irrelevant
+.profile-img-container {
+  overflow: hidden;
+  @include border-radius(50%);
+}
+
+.profile-img {
+  @include object-fit-position(cover, center);
+  width: 100%;
+}

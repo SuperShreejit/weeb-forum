@@ -1,0 +1,23 @@
+@mixin topbar-position {
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+@mixin downbar-position {
+	z-index: 1;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+@mixin sidebar-position($top) {
+	z-index: 1;
+	position: fixed;
+	top: $top;
+	left: 0;
+	bottom: 0;
+}

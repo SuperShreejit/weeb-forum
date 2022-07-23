@@ -1,5 +1,159 @@
 @import '../utils/media';
 @import '../utils/pallete';
 @import '../utils/typography';
+@import '../utils/variables';
+@import '../utils/flex';
+@import '../utils/box-shadow';
+@import '../utils/prefixors';
 
 //light theme - mobile first
+.link {
+	@include text(phone, link);
+}
+
+.nav-link {
+	width: 100%;
+	text-decoration: none;
+	padding: $navlink-padding;
+	background-color: transparent;
+	color: light(primary);
+	@include text(phone, caption);
+	@include flex(row, center, center, 0.5em);
+	
+	.link-label {
+		display: none;
+	}
+}
+
+.nav-link-active {
+	color: light(accent);
+}
+
+.caption-link {
+	text-decoration: none;
+	@include text(phone, caption);
+	color: light(secondary);
+}
+
+.primary-link {
+	color: light(primary);
+}
+
+.secondary-link {
+	color: light(secondary);
+}
+
+//interactions
+.nav-link:hover,
+.nav-link:focus,
+.nav-link-active:hover,
+.nav-link-active:focus {
+	@include transform-scale(1.05);
+}
+
+.nav-link-active:active,
+.nav-link:active {
+	@include transform-scale(0.95);
+	box-shadow: none;
+}
+
+//dark theme
+.dark {
+	.caption-link {
+		color: dark(secondary);
+	}
+	
+	.primary-link {
+		color: dark(primary);
+	}
+	
+	.secondary-link {
+		color: dark(secondary);
+	}
+	
+	.nav-link {
+		color: dark(secondary);
+	}
+	
+	.nav-link-active {
+		color: dark(accent);
+	}
+}
+
+//media queries
+@include media-tablet {
+	.link {
+		@include text(tablet, link);
+	}
+
+	.caption-link {
+		@include text(tablet, caption);
+	}
+	
+	.nav-link {
+		@include text(tablet, caption);
+		@include low-elevated-shadow(light);
+		background-color: light(primary);
+		color: light(on-primary);
+		
+		.link-label {
+			display: initial;
+		}
+	}
+	
+	.nav-link-active {
+		background-color: light(accent);
+		color: light(on-accent);
+	}
+
+	.nav-link:hover,
+	.nav-link:focus,
+	.nav-link-active:hover,
+	.nav-link-active:focus {
+		color: light(on-secondary);
+		background-color: light(secondary);
+	}
+	
+	.dark {
+		.nav-link {
+			@include low-elevated-shadow(dark);
+			background-color: dark(secondary);
+			color: dark(on-secondary);
+		}
+
+		.nav-link-active {
+			background-color: dark(accent);
+			color: dark(on-accent);
+		}
+
+		.nav-link:hover,
+		.nav-link:focus,
+		.nav-link-active:hover,
+		.nav-link-active:focus {
+			color: dark(on-primary);
+			background-color: dark(primary);
+		}
+	}
+}
+
+@include media-laptop {
+	.link {
+		@include text(laptop, link);
+	}
+
+	.caption-link,
+	.nav-link {
+		@include text(laptop, caption);
+	}
+}
+
+@include media-desktop {
+	.link {
+		@include text(desktop, link);
+	}
+
+	.caption-link,
+	.nav-link {
+		@include text(desktop, caption);
+	}
+}

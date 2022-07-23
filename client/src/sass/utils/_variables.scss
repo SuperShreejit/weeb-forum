@@ -1,11 +1,39 @@
 // media breakpoints
-$tablet-break: 380px;
-$laptop-break: 760px;
-$desktop-break: 1280px;
+$tablet-break: 600px;
+$laptop-break: 1000px;
+$desktop-break: 1400px;
 
 //buttons
 $btn-border: 1px solid currentcolor;
 $btn-padding: 0.5em 1em;
 $btn-border-radius: 0.5em;
 
+//link
+$navlink-padding: 0.5em 1em;
+
+//topbar
+$topbar-padding-mobile: 0.25em 1em;
+$topbar-padding-tablet: 0.25em 1em;
+$topbar-padding-laptop: 0.5em 2em;
+$topbar-padding-desktop: 0.5em 2.5em;
+$topbar-height-mobile: 4em;
+$topbar-height-tablet: 6em;
+$topbar-height-laptop: 6em;
+$topbar-height-desktop: 8em;
+
+//sidebar
+$sidebar-padding-mobile: 0 1em;
+$sidebar-padding-tablet: 1em 0.5em;
+$sidebar-padding-laptop: 1em 0.25em;
+$sidebar-padding-desktop: 2em 0.5em;
+$sidebar-top-tablet: 3.25em;
+$sidebar-top-laptop: 4em;
+$sidebar-top-desktop: 4em;
+
+//pages
+//landing
+$landing-padding-mobile: 0 1em;
+$landing-padding-tablet: 0 2em;
+$landing-padding-laptop: 0 2em;
+$landing-padding-desktop: 0 2em;
 

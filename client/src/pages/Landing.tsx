@@ -10,6 +10,7 @@ import { HEADERS, HEADER_VARIANT } from '../constants/header'
 import { DARK_CLASS, LANDING_CONTAINER_CLASS } from '../constants/pages'
 import { PARAGRAPHS, PARAGRAPH_VARIANT } from '../constants/paragraph'
 import useTheme from '../hooks/useTheme'
+import { IMAGE } from '../constants/Image'
 
 const landingClass = (isDark: boolean) =>
 	`${LANDING_CONTAINER_CLASS} ${isDark ? DARK_CLASS : ''}`
@@ -35,8 +36,8 @@ const Landing = () => {
 					/>
 				</div>
 			</div>
-			<BGImage source={images.landing1Img} />
-			<BGImage source={images.landing2Img} />
+			<BGImage source={images.landing1Img} name={IMAGE.LANDING1} />
+			<BGImage source={images.landing2Img} name={IMAGE.LANDING2} />
 		</main>
 	)
 }

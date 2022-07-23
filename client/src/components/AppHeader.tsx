@@ -4,7 +4,6 @@ import { APP_HEADER_CLASS } from '../constants/header'
 import Button from './Button'
 import Title from './Title'
 import useAuth from '../hooks/useAuth'
-import useNavigation from '../hooks/useNavigations'
 import { CONTAINER_CLASS } from '../constants/component'
 import ProfileImage from './ProfileImage'
 import NavLink from './NavLink'
@@ -16,26 +15,14 @@ import { PARAGRAPH_VARIANT } from '../constants/paragraph'
 import ERRORS from '../constants/errors'
 import { DARK_CLASS } from '../constants/pages'
 import useTheme from '../hooks/useTheme'
+import getError from '../helpers/getError'
 
 const header_class = (isDark: boolean) =>
 	`${APP_HEADER_CLASS} ${isDark ? DARK_CLASS : ''}`
 
 const AppHeader = () => {
-	const { isAuth, logout, user, image, res } = useAuth()
+	const { logout, user, image, res } = useAuth()
 	const { isDark } = useTheme()
-	const { navigateToSignUp } = useNavigation()
-
-	if (!isAuth)
-		return (
-			<header className={header_class(isDark)}>
-				<Title />
-				<Button
-					label={BUTTON_LABELS.SIGN_UP}
-					variant={BUTTON_VARIANT.ACCENT_HIGHLIGHTED_ROUNDED}
-					onClick={navigateToSignUp}
-				/>
-			</header>
-		)
 
 	if (res.isLoading)
 		return (
@@ -57,7 +44,7 @@ const AppHeader = () => {
 				<Title />
 				<Paragraph
 					variant={PARAGRAPH_VARIANT.REGULAR}
-					text={ERRORS.FETCH_USER_FAILED}
+					text={`${ERRORS.FETCH_USER_FAILED}: ${getError(res.error)}`}
 				/>
 			</header>
 		)

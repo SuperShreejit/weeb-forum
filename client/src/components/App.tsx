@@ -18,20 +18,11 @@ import Search from '../pages/Search'
 import Notifications from '../pages/Notifications'
 import PrivacyPolicy from '../pages/PrivacyPolicy'
 import TermsConditions from '../pages/TermsConditions'
-import AppHeader from './AppHeader'
+import PublicLayout from '../pages/PublicLayout'
 
 const App = () => (
 	<Router>
-		<AppHeader />
 		<Routes>
-			<Route path={CLIENT_ROUTES.LANDING} element={<Landing />} />
-			<Route path={CLIENT_ROUTES.REGISTER} element={<Register />} />
-			<Route path={CLIENT_ROUTES.LOGIN} element={<Login />} />
-			<Route path={CLIENT_ROUTES.VERIFY_EMAIL} element={<VerifyEmail />} />
-			<Route
-				path={CLIENT_ROUTES.FORGOT_PASSWORD}
-				element={<ForgotPassword />}
-			/>
 			<Route path={CLIENT_ROUTES.AUTH_BASE} element={<Authentication />}>
 				<Route path={CLIENT_ROUTES.CREATE_POST} element={<CreatePost />} />
 				<Route path={CLIENT_ROUTES.VIEW_POST} element={<ViewPost />} />
@@ -41,14 +32,30 @@ const App = () => (
 				<Route path={CLIENT_ROUTES.SETTINGS} element={<UserSettings />} />
 				<Route path={CLIENT_ROUTES.SEARCH} element={<Search />} />
 				<Route path={CLIENT_ROUTES.NOTIFICATIONS} element={<Notifications />} />
+				<Route path={CLIENT_ROUTES.PAGE_NOT_FOUND} element={<PageNotFound />} />
 			</Route>
-			<Route path={CLIENT_ROUTES.PRIVACY_POLICY} element={<PrivacyPolicy />} />
-			<Route
-				path={CLIENT_ROUTES.TERMS_CONDITIONS}
-				element={<TermsConditions />}
-			/>
-			<Route path={CLIENT_ROUTES.FORBIDDEN} element={<Forbidden />} />
-			<Route path={CLIENT_ROUTES.PAGE_NOT_FOUND} element={<PageNotFound />} />
+
+			<Route element={<PublicLayout />}>
+				<Route path={CLIENT_ROUTES.LANDING} element={<Landing />} />
+				<Route path={CLIENT_ROUTES.REGISTER} element={<Register />} />
+				<Route path={CLIENT_ROUTES.LOGIN} element={<Login />} />
+				<Route path={CLIENT_ROUTES.VERIFY_EMAIL} element={<VerifyEmail />} />
+				<Route
+					path={CLIENT_ROUTES.FORGOT_PASSWORD}
+					element={<ForgotPassword />}
+				/>
+				<Route
+					path={CLIENT_ROUTES.PRIVACY_POLICY}
+					element={<PrivacyPolicy />}
+				/>
+				<Route
+					path={CLIENT_ROUTES.TERMS_CONDITIONS}
+					element={<TermsConditions />}
+				/>
+				<Route path={CLIENT_ROUTES.FORBIDDEN} element={<Forbidden />} />
+				<Route path={CLIENT_ROUTES.PAGE_NOT_FOUND} element={<PageNotFound />} />
+			</Route>
+			
 		</Routes>
 	</Router>
 )
