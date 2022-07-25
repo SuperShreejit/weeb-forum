@@ -5,7 +5,9 @@ import {
 	MdThumbDown,
 	MdMoreVert,
 } from 'react-icons/md'
+import { ICON_BUTTON_SIZE } from '../constants/component'
 import { ICON_BUTTON_VARIANT, ICON_BUTTON_CLASS } from '../constants/iconButton'
+import '../sass/components/_icon-buttons.scss'
 
 type IconButtonProps = JSX.IntrinsicElements['button'] & {
 	variant: ICON_BUTTON_VARIANT
@@ -16,31 +18,31 @@ const IconButton = ({ variant, ...rest }: IconButtonProps) => {
 		case ICON_BUTTON_VARIANT.CLOSE:
 			return (
 				<button className={`${ICON_BUTTON_CLASS}`} {...rest}>
-					<MdClose />
+					<MdClose size={ICON_BUTTON_SIZE}/>
 				</button>
 			)
 		case ICON_BUTTON_VARIANT.COMMENT:
 			return (
 				<button className={`${ICON_BUTTON_CLASS}`} {...rest}>
-					<MdComment />
+					<MdComment size={ICON_BUTTON_SIZE} />
 				</button>
 			)
 		case ICON_BUTTON_VARIANT.DISLIKE:
 			return (
 				<button className={`${ICON_BUTTON_CLASS}`} {...rest}>
-					<MdThumbDown />
+					<MdThumbDown size={ICON_BUTTON_SIZE} />
 				</button>
 			)
 		case ICON_BUTTON_VARIANT.LIKE:
 			return (
 				<button className={`${ICON_BUTTON_CLASS}`} {...rest}>
-					<MdThumbUp />
+					<MdThumbUp size={ICON_BUTTON_SIZE} />
 				</button>
 			)
 		case ICON_BUTTON_VARIANT.OPTIONS:
 			return (
 				<button className={`${ICON_BUTTON_CLASS}`} {...rest}>
-					<MdMoreVert />
+					<MdMoreVert size={ICON_BUTTON_SIZE} />
 				</button>
 			)
 		default:

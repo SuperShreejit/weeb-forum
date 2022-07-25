@@ -11,12 +11,14 @@ import { DARK_CLASS, LANDING_CONTAINER_CLASS } from '../constants/pages'
 import { PARAGRAPHS, PARAGRAPH_VARIANT } from '../constants/paragraph'
 import useTheme from '../hooks/useTheme'
 import { IMAGE } from '../constants/Image'
+import useNavigation from '../hooks/useNavigations'
 
 const landingClass = (isDark: boolean) =>
 	`${LANDING_CONTAINER_CLASS} ${isDark ? DARK_CLASS : ''}`
 
 const Landing = () => {
 	const { isDark } = useTheme()
+	const { navigateToSignUp, navigateToSignIn } = useNavigation()
 	return (
 		<main className={landingClass(isDark)}>
 			<div className={CONTAINER_CLASS.FLEX_VERITICAL}>
@@ -29,10 +31,12 @@ const Landing = () => {
 					<Button
 						label={BUTTON_LABELS.SIGN_UP}
 						variant={BUTTON_VARIANT.ACCENT_HIGHLIGHTED_ROUNDED}
+						onClick={navigateToSignUp}
 					/>
 					<Button
 						label={BUTTON_LABELS.SIGN_IN}
 						variant={BUTTON_VARIANT.SECONDARY_BORDER_ROUNDED}
+						onClick={navigateToSignIn}
 					/>
 				</div>
 			</div>

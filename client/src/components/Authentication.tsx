@@ -4,7 +4,7 @@ import useTheme from '../hooks/useTheme'
 import AppHeader from './AppHeader'
 import Sidebar from './Sidebar'
 
-const divClass = (isDark: boolean) => (isDark ? DARK_CLASS : 'dark')
+const divClass = (isDark: boolean) => (isDark ? DARK_CLASS : '')
 
 const Authentication = () => {
 	const { isDark } = useTheme()

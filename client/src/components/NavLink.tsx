@@ -8,6 +8,7 @@ import {
 import { Link, LinkProps } from 'react-router-dom'
 import { MdHomeFilled, MdNotifications, MdSettings, MdSearch } from 'react-icons/md'
 import { FaFeatherAlt, FaUserCircle } from 'react-icons/fa'
+import { NAVLINK_ICON_SIZE } from '../constants/component'
 
 type NavLinkProp = LinkProps & {
 	variant: LINK_VARIANT
@@ -23,42 +24,42 @@ const NavLink = ({ variant, label, to, ...rest }: NavLinkProp) => {
 					to={to}
 					{...rest}
 				>
-					<MdHomeFilled size={'2em'} />
+					<MdHomeFilled size={NAVLINK_ICON_SIZE} />
 					<span className={LINK_LABEL_CLASS}>{label}</span>
 				</Link>
 			)
 		case LINK_VARIANT.NAV_LINK_ALERTS:
 			return (
 				<Link className={LINK_CLASS.NAV_LINK} to={to} {...rest}>
-					<MdNotifications size={'2em'} />
+					<MdNotifications size={NAVLINK_ICON_SIZE} />
 					<span className={LINK_LABEL_CLASS}>{label}</span>
 				</Link>
 			)
 		case LINK_VARIANT.NAV_LINK_COMPOSE:
 			return (
 				<Link className={LINK_CLASS.NAV_LINK} to={to} {...rest}>
-					<FaFeatherAlt size={'2em'} />
+					<FaFeatherAlt size={NAVLINK_ICON_SIZE} />
 					<span className={LINK_LABEL_CLASS}>{label}</span>
 				</Link>
 			)
 		case LINK_VARIANT.NAV_LINK_SEARCH:
 			return (
 				<Link className={LINK_CLASS.NAV_LINK} to={to} {...rest}>
-					<MdSearch size={'2em'} />
+					<MdSearch size={NAVLINK_ICON_SIZE} />
 					<span className={LINK_LABEL_CLASS}>{label}</span>
 				</Link>
 			)
 		case LINK_VARIANT.NAV_LINK_PROFILE:
 			return (
 				<Link className={LINK_CLASS.NAV_LINK} to={to} {...rest}>
-					<FaUserCircle size={'2em'} />
+					<FaUserCircle size={NAVLINK_ICON_SIZE} />
 					<span className={LINK_LABEL_CLASS}>{label}</span>
 				</Link>
 			)
 		case LINK_VARIANT.NAV_LINK_SETTINGS:
 			return (
 				<Link className={LINK_CLASS.NAV_LINK} to={to} {...rest}>
-					<MdSettings size={'2em'} />
+					<MdSettings size={NAVLINK_ICON_SIZE} />
 					<span className={LINK_LABEL_CLASS}>{label}</span>
 				</Link>
 			)

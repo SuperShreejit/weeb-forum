@@ -12,10 +12,10 @@ import { CLIENT_ROUTES } from '../constants/routes'
 import Loading from './Loading'
 import Paragraph from './Paragraph'
 import { PARAGRAPH_VARIANT } from '../constants/paragraph'
-import ERRORS from '../constants/errors'
 import { DARK_CLASS } from '../constants/pages'
 import useTheme from '../hooks/useTheme'
 import getError from '../helpers/getError'
+import { QUERY_ERRORS } from '../constants/queries'
 
 const header_class = (isDark: boolean) =>
 	`${APP_HEADER_CLASS} ${isDark ? DARK_CLASS : ''}`
@@ -44,7 +44,7 @@ const AppHeader = () => {
 				<Title />
 				<Paragraph
 					variant={PARAGRAPH_VARIANT.REGULAR}
-					text={`${ERRORS.FETCH_USER_FAILED}: ${getError(res.error)}`}
+					text={`${QUERY_ERRORS.FETCH_USER_FAILED}: ${getError(res.error)}`}
 				/>
 			</header>
 		)

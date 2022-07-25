@@ -10,7 +10,9 @@ const useNavigation = () => {
 		[navigate],
 	)
 
-	return { navigateToSignUp }
+	const navigateToSignIn = useCallback(() => navigate(CLIENT_ROUTES.LOGIN), [navigate])
+
+	return { navigateToSignUp, navigateToSignIn }
 }
 
 export default useNavigation

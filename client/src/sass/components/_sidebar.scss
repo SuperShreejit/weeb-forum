@@ -4,72 +4,103 @@
 @import '../utils/pallete';
 @import '../utils/media';
 @import '../utils/border';
+@import '../utils/box-shadow';
 
 //light theme - mobile first
 .sidebar {
-  @include downbar-position();
-  background-color: light(neutral);
-  padding: $sidebar-padding-mobile;
+	@include downbar-position();
+	background-color: light(neutral);
+	padding: $sidebar-padding-mobile;
 
 	.navbar {
-    background-color: inherit;
+		background-color: inherit;
 		@include flex(row, center, center);
 	}
 
-	.bg-img-container, .flex-vertical {
+	.bg-img-container,
+	.flex-vertical {
 		display: none;
 	}
 }
 
 //dark theme
 .dark {
-  .sidebar {
-    background-color: dark(neutral);
-  }
+	.sidebar {
+		background-color: dark(neutral);
+	}
 }
 
 //media queries
 @include media-tablet {
-  .sidebar {
-    width: 20vw;
-    padding: $sidebar-padding-tablet;
-    @include sidebar-position($sidebar-top-tablet);
-    @include flex(column, flex-start, center, 1em);
+	.sidebar {
+		width: 20vw;
+		padding: $sidebar-padding-tablet;
+		@include sidebar-position($sidebar-top-tablet);
+		@include flex(column, space-around, center, 1em);
+		@include low-elevated-shadow(light);
+		overflow-y: scroll;
+		overflow-x: hidden;
 
-    .navbar {
-      justify-self: stretch;
-      @include flex(column, center, center, 1em);
-      @include border-bottom(light);
-    }
+		.navbar {
+			@include flex(column, center, center, 1em);
+			@include border-bottom(light);
+			padding: $navbar-padding;
+			width: 100%;
+		}
 
-    .sidebar-img {
-      width: 100%;
-    }
+		.sidebar-img {
+			@include flex(row, center, center);
 
-    .bg-img-container, .flex-vertical {
-      display: initial;
-    }
+			.bg-img {
+				@include object-fit-position(cover, center);
+				width: 100%;
+			}
+		}
 
-    .flex-vertical {
-      width: 100%;
-      justify-self: end;
-    }
-  }
+		.bg-img-container,
+		.flex-vertical {
+			display: initial;
+		}
 
-  .dark {
-    .navbar {
-      @include border-bottom(dark);
-    }
-  }
+		.flex-vertical {
+			width: 100%;
+		}
+	}
+
+	.dark {
+		.sidebar {
+			@include low-elevated-shadow(dark);
+		}
+		.navbar {
+			@include border-bottom(dark);
+		}
+	}
 }
 
 @include media-laptop {
-  .sidebar {
-    padding: $sidebar-padding-laptop;
-    @include sidebar-position($sidebar-top-laptop);
-  }
+	.sidebar {
+		padding: $sidebar-padding-laptop;
+		@include sidebar-position($sidebar-top-laptop);
+
+		.sidebar-img {
+			@include flex(row, center, center);
+
+			.bg-img {
+				width: 60%;
+			}
+		}
+	}
 }
 
 @include media-desktop {
+	.sidebar {
+		padding: $sidebar-padding-desktop;
+		@include sidebar-position($sidebar-top-desktop);
 
+		.sidebar-img {
+			.bg-img {
+				width: 80%;
+			}
+		}
+	}
 }

@@ -1,0 +1,41 @@
+@import '../utils/box-shadow';
+@import '../utils/media';
+@import '../utils/typography';
+@import '../utils/pallete';
+
+//light theme - movile first
+.icon-btn {
+	outline: none;
+	border: none;
+	background-color: transparent;
+	color: light(secondary);
+	font-size: 1rem;
+  
+	svg {
+		@include elevated-shadow(light);
+	}
+}
+
+//dark theme
+.dark {
+	.icon-btn {
+		color: dark(secondary);
+
+		svg {
+			@include elevated-shadow(dark);
+		}
+	}
+}
+
+//media queries
+@include media-tablet {
+	.icon-btn {
+		font-size: 1.25rem;
+	}
+}
+
+@include media-desktop {
+	.icon-btn {
+		font-size: 1.5rem;
+	}
+}
