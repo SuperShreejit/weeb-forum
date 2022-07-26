@@ -3,9 +3,10 @@ import {
 	BUTTON_LABELS,
 	BUTTON_VARIANT,
 } from '../constants/button'
+import { ELEMENTS } from '../constants/component'
 import '../sass/components/_buttons.scss'
 
-type ButtonProps = JSX.IntrinsicElements['button'] & {
+type ButtonProps = JSX.IntrinsicElements[ELEMENTS.BUTTON] & {
 	variant: BUTTON_VARIANT
 	label: BUTTON_LABELS
 }

@@ -8,11 +8,12 @@ import {
 } from '../constants/forms'
 import FormAlert from './FormAlert'
 import '../sass/components/_form_control.scss'
+import { ELEMENTS } from '../constants/component'
 
-type FieldTextAreaProps = JSX.IntrinsicElements['textarea'] & {
+type FieldTextAreaProps = JSX.IntrinsicElements[ELEMENTS.TEXTAREA] & {
 	label: LABELS
-	touched: boolean
-	error: string
+	touched: boolean | undefined
+	error: string | undefined
 }
 
 const FieldTextArea = ({

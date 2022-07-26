@@ -5,8 +5,9 @@ import {
 	CAPTION_CLASS,
 	PARAGRAPH_VARIANT,
 } from '../constants/paragraph'
+import { ELEMENTS } from '../constants/component';
 
-type ParagraphProps = JSX.IntrinsicElements['p'] & { variant: PARAGRAPH_VARIANT; text: PARAGRAPHS | string }
+type ParagraphProps = JSX.IntrinsicElements[ELEMENTS.PARAGRAPH] & { variant: PARAGRAPH_VARIANT; text: PARAGRAPHS | string }
 
 const Paragraph = ({ variant, text }: ParagraphProps) => {
 	switch (variant) {

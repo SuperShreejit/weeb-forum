@@ -109,17 +109,46 @@ export enum SUCCESS_MESSAGE {
   EDIT_COMMENT = 'Successfully Updated Comment!',
 }
 
+export enum FORM_ERRORS {
+  MISSING_USERNAME = 'Username cannot be empty',
+  MISSING_PASSWORD = 'Password cannot be empty',
+  MISSING_EMAIL = 'Email cannot be empty',
+  MISSING_NAME = 'Name cannot be empty',
+  MISSING_OTP = 'OTP cannot be empty',
+  INVALID_USERNAME = 'Must be a valid password',
+  INVALID_PASSWORD = 'Must be a valid password',
+  INVALID_OTP = 'Must be a valid OTP',
+  INVALID_EMAIL = 'Must be a valid email',
+  INVALID_USERNAME_LENGTH = 'Username must be of length 6-20',
+  INVALID_PASSWORD_LENGTH = 'Username must be of length 6-20',
+  INVALID_OTP_LENGTH = 'Username must be of length 6-20',
+  PASSWORD_OTHERS_SAME = 'Password must not match name, username or email',
+  USERNAME_OTHERS_SAME = 'Username must not match password or email',
+  PASSWORD_DIFFERENT = 'Passwords must match',
+}
+
+export const REGEX = {
+	PASSWORD:
+		/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*\s)(?=.*[!@#$%,_-]).{6,20}$/,
+	USERNAME: /^(?!.*\s)[a-zA-Z][a-zA-Z0-9-_@]{6,20}$/,
+	OTP: /^\d{4}$/,
+}
+Object.freeze(REGEX)
+
+export enum INPUT_LENGTH {
+  USERNAME_MIN = 6,
+  USERNAME_MAX = 20,
+  PASSWORD_MIN = 6,
+  PASSWORD_MAX = 20,
+  OTP=4
+}
+
 export const LABEL_CLASS = 'label'
 export const FORM_CONTROL_CLASS = 'form-control'
 export const FIELD_HINT_CLASS = 'field-hint'
-
-export enum FORM_ERRORS {
-  //validations
-
-}
-
 export const ERROR_MESSAGE_CLASS = 'error-msg'
 export const SUCCESS_MESSAGE_CLASS = 'success-msg'
+export const FORM_CLASS = 'form'
 export const ARIA_LIVE = 'assertive'
 export const TEXTAREA_COLS = 10
 export const TEXTAREA_ROWS = 5

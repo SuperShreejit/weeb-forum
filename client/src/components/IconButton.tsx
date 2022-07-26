@@ -5,11 +5,11 @@ import {
 	MdThumbDown,
 	MdMoreVert,
 } from 'react-icons/md'
-import { ICON_BUTTON_SIZE } from '../constants/component'
+import { ELEMENTS, ICON_BUTTON_SIZE } from '../constants/component'
 import { ICON_BUTTON_VARIANT, ICON_BUTTON_CLASS } from '../constants/iconButton'
 import '../sass/components/_icon-buttons.scss'
 
-type IconButtonProps = JSX.IntrinsicElements['button'] & {
+type IconButtonProps = JSX.IntrinsicElements[ELEMENTS.BUTTON] & {
 	variant: ICON_BUTTON_VARIANT
 }
 

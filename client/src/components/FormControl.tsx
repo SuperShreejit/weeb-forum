@@ -20,8 +20,8 @@ type FormControlProps = JSX.IntrinsicElements['input'] & {
 	label: LABELS
 	placeholder: PLACEHOLDERS
 	name: FIELD_NAMES
-	error: FORM_ERRORS | string
-	touched: boolean
+	error: FORM_ERRORS | string | undefined
+	touched: boolean | undefined
 	hint?: FIELD_HINTS
 	hintId?: HINT_ID
 }

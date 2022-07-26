@@ -43,4 +43,12 @@ export enum BUTTON_LABELS {
   VIEW_POST = 'View Full Post',
   FOLLOW = 'Follow',
   UNFOLLOW = 'Unfollow',
+  SEND_OTP = 'Send OTP',
+  RESEND_OTP = 'Resend OTP',
+}
+
+export enum BUTTON_TYPES {
+	BUTTON = 'button',
+	SUBMIT = 'submit',
+	RESET = 'reset',
 }
