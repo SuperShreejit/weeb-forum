@@ -19,6 +19,7 @@ export enum BUTTON_VARIANT {
 
 export enum BUTTON_CLASSES {
 	BASE = 'btn',
+	GOOGLE = 'google-btn',
 	ELEVATED_ROUNDED = 'elevated-rounded-btn',
 	BORDER_ROUNDED = 'bordered-rounded-btn',
 	TRANSPARENT = 'transparent-btn',
@@ -31,6 +32,7 @@ export enum BUTTON_CLASSES {
 
 export enum BUTTON_LABELS {
   SIGN_IN = 'Sign In',
+  GOOGLE = 'Sign In with Google',
   SIGN_UP = 'Sign Up For Free',
   REGISTER = 'Register',
   LOGIN = 'Login',

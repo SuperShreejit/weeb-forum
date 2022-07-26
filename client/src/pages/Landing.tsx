@@ -7,14 +7,14 @@ import Paragraph from '../components/Paragraph'
 import { BUTTON_LABELS, BUTTON_VARIANT } from '../constants/button'
 import { CONTAINER_CLASS } from '../constants/component'
 import { HEADERS, HEADER_VARIANT } from '../constants/header'
-import { DARK_CLASS, LANDING_CONTAINER_CLASS } from '../constants/pages'
+import { DARK_CLASS, PAGE_CONTAINER_CLASS } from '../constants/pages'
 import { PARAGRAPHS, PARAGRAPH_VARIANT } from '../constants/paragraph'
 import useTheme from '../hooks/useTheme'
 import { IMAGE } from '../constants/Image'
 import useNavigation from '../hooks/useNavigations'
 
 const landingClass = (isDark: boolean) =>
-	`${LANDING_CONTAINER_CLASS} ${isDark ? DARK_CLASS : ''}`
+	`${PAGE_CONTAINER_CLASS.LANDING} ${isDark ? DARK_CLASS : ''}`
 
 const Landing = () => {
 	const { isDark } = useTheme()

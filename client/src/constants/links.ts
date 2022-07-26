@@ -1,5 +1,6 @@
 export enum LINKS {
   FORGOT_PASSWORD = 'Forgot Password',
+  SIGN_IN = 'Sign in',
   RESEND_OTP = 'Resend OTP',
   PRIVACY_POLICY = 'Privacy Policy',
   TERMS_CONDITIONS = 'Terms & Conditions',

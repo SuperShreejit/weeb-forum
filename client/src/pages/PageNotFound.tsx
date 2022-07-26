@@ -1,9 +1,8 @@
-import { FC } from 'react'
 
-const PageNotFound: FC = () => {
+const PageNotFound = () => {
   return (
     <main>
-      
+      Page not found
     </main>
   )
 }

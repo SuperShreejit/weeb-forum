@@ -1,8 +1,8 @@
-import React from 'react'
 
-const Forbidden: React.FC = () => {
+
+const Forbidden = () => {
   return (
-    <div>: React.FC</div>
+    <div>Forbidden</div>
   )
 }
 
