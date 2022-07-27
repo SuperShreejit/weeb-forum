@@ -16,10 +16,17 @@
 		color: light(secondary);
 	}
 
+	.field-hint {
+		color: light(secondary);
+		width: 30ch;
+		@include border-full();
+	}
+
 	.text {
 		@include text(phone, input);
+		@include border-text();
 		color: light(secondary);
-    width: 100%;
+		width: 100%;
 	}
 
 	.text::placeholder {
@@ -29,7 +36,7 @@
 
 	.label.field-error,
 	.text.field-error {
-		color: light(error);
+		color: light(danger);
 	}
 
 	.label.field-success,
@@ -38,15 +45,19 @@
 	}
 
 	.error-msg {
-		color: light(error);
+		color: light(danger);
 		@include text(phone, paragraph);
-    width: 100%;    
+		width: 100%;
 	}
-  
+
 	.success-msg {
-    width: 100%;
-    color: light(success);
+		width: 100%;
+		color: light(success);
 		@include text(phone, paragraph);
+	}
+
+	.text:focus, .text:focus {
+		border-width: 2px;
 	}
 }
 
@@ -57,10 +68,14 @@
 		color: dark(secondary);
 	}
 
+	.field-hint {
+		color: dark(secondary);
+	}
+
 	.label.field-error,
 	.text.field-error,
 	.error-msg {
-		color: dark(error);
+		color: dark(danger);
 	}
 
 	.label.field-success,

@@ -1,7 +1,6 @@
 import {
   FIELD_CONTROL_VARIANT,
 	FIELD_CLASSES,
-	FIELD_HINTS,
 	FIELD_NAMES,
 	FORM_CONTROL_CLASS,
 	FORM_ERRORS,
@@ -22,7 +21,7 @@ type FormControlProps = JSX.IntrinsicElements['input'] & {
 	name: FIELD_NAMES
 	error: FORM_ERRORS | string | undefined
 	touched: boolean | undefined
-	hint?: FIELD_HINTS
+	hint?: string[]
 	hintId?: HINT_ID
 }
 

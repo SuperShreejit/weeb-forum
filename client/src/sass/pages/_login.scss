@@ -1,0 +1,73 @@
+@import '../utils/flex';
+@import '../utils/media';
+@import '../utils/border';
+@import '../utils/variables';
+
+//light theme - mobile
+.login-container {
+	@include flex(column, center, center, 1em);
+	background-color: light(neutral);
+	padding: $login-padding-mobile;
+	padding-top: $topbar-height-mobile;
+
+	.flex-vertical {
+		align-items: center;
+	}
+
+	.form {
+		@include border-bottom(light);
+		padding-bottom: 1em;
+	}
+
+	.bg-img {
+		width: 90%;
+	}
+}
+
+//dark theme
+.dark {
+	background-color: dark(neutral);
+
+	.form {
+		@include border-bottom(light);
+	}
+}
+
+//media queries
+@include media-tablet {
+	.login-container {
+		padding: $login-padding-tablet;
+		padding-top: $topbar-height-tablet;
+
+    .bg-img-container {
+      @include flex(row, center, center);
+      width: 70%;
+    }
+	}
+}
+
+@include media-laptop {
+	.login-container {
+		padding: $login-padding-laptop;
+		padding-top: $topbar-height-laptop;
+    @include flex(row, space-around, center, 1em);
+    
+    .bg-img-container {
+      @include flex(row, center, center);
+      width: 50%;
+    }
+	}
+}
+
+@include media-desktop {
+  .login-container {
+    padding: $login-padding-desktop;
+		padding-top: $topbar-height-desktop;
+    @include flex(row, space-around, center, 1em);
+    
+    .bg-img-container {
+      @include flex(row, center, center);
+      width: 50%;
+    }
+	}
+}

@@ -1,0 +1,59 @@
+@import '../utils/flex';
+@import '../utils/media';
+@import '../utils/variables';
+
+//light them - mobile
+.not-found-container {
+	@include flex(column, space-between, center, 1em);
+	background-color: light(neutral);
+	padding: $not-found-padding-mobile;
+	padding-top: $topbar-height-mobile;
+	height: 100vh;
+
+	.bg-img-container {
+		flex-grow: 0.25;
+		.bg-img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+//dark theme
+.dark {
+	background-color: dark(neutral);
+}
+
+//media queries
+@include media-tablet {
+	.not-found-container {
+		padding: $not-found-padding-tablet;
+		padding-top: $topbar-height-tablet;
+
+    .bg-img-container{
+      flex-grow: 0.75;
+    }
+	}
+}
+
+@include media-laptop {
+  .not-found-container {
+    padding: $not-found-padding-laptop;
+    padding-top: $topbar-height-laptop;
+
+     .bg-img-container{
+      flex-grow: 1;
+    }
+  }
+}
+
+@include media-desktop {
+  .not-found-container {
+    padding: $not-found-padding-desktop;
+    padding-top: $topbar-height-desktop;
+
+     .bg-img-container{
+      flex-grow: 1.5;
+    }
+  }
+}

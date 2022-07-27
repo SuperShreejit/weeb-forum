@@ -1,16 +1,18 @@
-import { FIELD_HINT_CLASS, FIELD_HINTS, HINT_ID } from '../constants/forms'
-import { PARAGRAPH_VARIANT } from '../constants/paragraph'
-import Paragraph from './Paragraph'
+import { FIELD_HINT_CLASS,  HINT_ID } from '../constants/forms'
 import { FaInfo } from 'react-icons/fa'
 import { HINT_ICON_SIZE } from '../constants/component'
 
-type FieldHintProps = { hint: FIELD_HINTS, hintId: HINT_ID }
+type FieldHintProps = { hint: string[]; hintId: HINT_ID }
 
 const FieldHint = ({ hint, hintId }: FieldHintProps) => {
 	return (
-		<div className={FIELD_HINT_CLASS}>
+		<div className={FIELD_HINT_CLASS} id={hintId}>
 			<FaInfo size={HINT_ICON_SIZE} />
-			<Paragraph text={hint} variant={PARAGRAPH_VARIANT.REGULAR} id={hintId} />
+			<ul>
+				{hint.map((text: string, i: number) => (
+					<li key={i}>{text}</li>
+				))}
+			</ul>
 		</div>
 	)
 }

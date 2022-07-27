@@ -7,14 +7,25 @@ import { IMAGE } from '../constants/Image'
 import BGImage from '../components/BGImage'
 import images from '../assets/images'
 import '../sass/pages/_forgot-password.scss'
+import { CONTAINER_CLASS } from '../constants/component'
+import '../sass/pages/_forgot-password.scss'
 
 const ForgotPassword = () => {
-  return (
+	return (
 		<main className={PAGE_CONTAINER_CLASS.FORGOT_PASSWORD}>
-			<Header text={HEADERS.FORGOT_PASSWORD} variant={HEADER_VARIANT.PRIMARY_H2} />
-      <ForgotPasswordForm />
-			<Header text={HEADERS.RESET_PASSWORD} variant={HEADER_VARIANT.PRIMARY_H2} />
-      <ResetPasswordForm/>
+			<div className={CONTAINER_CLASS.FLEX_VERITICAL}>
+				<Header
+					text={HEADERS.FORGOT_PASSWORD}
+					variant={HEADER_VARIANT.PRIMARY_H2}
+				/>
+				<ForgotPasswordForm />
+
+				<Header
+					text={HEADERS.RESET_PASSWORD}
+					variant={HEADER_VARIANT.PRIMARY_H2}
+				/>
+				<ResetPasswordForm />
+			</div>
 			<BGImage name={IMAGE.VERIFY} source={images.VerifyImg} />
 		</main>
 	)

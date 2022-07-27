@@ -8,6 +8,7 @@
 	
 	.bg-img {
 		@include object-fit-position(cover, center);
+		width: 100%;
 	}
 }
 

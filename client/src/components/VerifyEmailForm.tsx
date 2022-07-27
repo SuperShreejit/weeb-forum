@@ -1,5 +1,4 @@
 import { useFormik } from 'formik'
-
 import {
 	BUTTON_LABELS,
 	BUTTON_TYPES,
@@ -61,6 +60,7 @@ const VerifyEmailForm = () => {
 					variant={BUTTON_VARIANT.PRIMARY_ELEVATED_ROUNDED}
 					type={BUTTON_TYPES.BUTTON}
 					onClick={() => getOTP(values)}
+					disabled={isValid}
 				/>
 				<Button
 					label={BUTTON_LABELS.RESEND_OTP}

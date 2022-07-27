@@ -82,7 +82,7 @@ const RegisterForm = () => {
         name={FIELD_NAMES.CONFIRM_PASSWORD}
 			/>
 			<FormButtons
-				label={BUTTON_LABELS.LOGIN}
+				label={BUTTON_LABELS.REGISTER}
 				dirty={dirty}
 				isSubmitting={isSubmitting}
 				isValid={isValid}

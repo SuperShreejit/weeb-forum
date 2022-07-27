@@ -1,0 +1,73 @@
+@import '../utils/flex';
+@import '../utils/media';
+@import '../utils/border';
+@import '../utils/variables';
+
+//light theme - mobile
+.register-container {
+	background-color: light(neutral);
+	@include flex(column, center, center, 1em);
+	padding: $register-padding-mobile;
+	padding-top: $topbar-height-mobile;
+
+	.flex-vertical {
+		align-items: center;
+	}
+
+	.form {
+		@include border-bottom(light);
+		padding-bottom: 1em;
+	}
+
+	.bg-img {
+		width: 90%;
+	}
+}
+
+//dark theme
+.dark {
+	background-color: dark(neutral);
+
+	.form {
+		@include border-bottom(dark);
+	}
+}
+
+//media queries
+@include media-tablet {
+	.register-container {
+		padding: $register-padding-tablet;
+		padding-top: $topbar-height-tablet;
+
+		.bg-img-container {
+			@include flex(row, center, center);
+			width: 70%;
+		}
+	}
+}
+
+@include media-laptop {
+	.register-container {
+		padding: $register-padding-laptop;
+		padding-top: $topbar-height-laptop;
+		@include flex(row, space-around, center, 1em);
+
+		.bg-img-container {
+			@include flex(row, center, center);
+			width: 50%;
+		}
+	}
+}
+
+@include media-desktop {
+	.register-container {
+		padding: $register-padding-desktop;
+		padding-top: $topbar-height-desktop;
+		@include flex(row, space-around, center, 1em);
+
+		.bg-img-container {
+			@include flex(row, center, center);
+			width: 50%;
+		}
+	}
+}

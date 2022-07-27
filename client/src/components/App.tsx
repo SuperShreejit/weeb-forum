@@ -32,6 +32,7 @@ const App = () => (
 				<Route path={CLIENT_ROUTES.SETTINGS} element={<UserSettings />} />
 				<Route path={CLIENT_ROUTES.SEARCH} element={<Search />} />
 				<Route path={CLIENT_ROUTES.NOTIFICATIONS} element={<Notifications />} />
+				<Route path={CLIENT_ROUTES.FORBIDDEN_AUTH} element={<Forbidden />} />
 				<Route path={CLIENT_ROUTES.PAGE_NOT_FOUND} element={<PageNotFound />} />
 			</Route>
 

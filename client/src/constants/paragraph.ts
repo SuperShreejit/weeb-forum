@@ -3,6 +3,7 @@ export enum PARAGRAPHS {
 	COPYRIGHT = 'Weeb Zone ©2022',
 	CREATOR = 'Made by SuperShreejit',
 	LOGIN = 'Already a user?',
+	REGISTER = "Don't have an account?",
 	FORGOT_PASSWORD = 'Forgot your password?',
 }
 

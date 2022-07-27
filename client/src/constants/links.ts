@@ -1,6 +1,7 @@
 export enum LINKS {
   FORGOT_PASSWORD = 'Forgot Password',
-  SIGN_IN = 'Sign in',
+  SIGN_IN = 'Sign In',
+  SIGN_UP = 'Sign Up',
   RESEND_OTP = 'Resend OTP',
   PRIVACY_POLICY = 'Privacy Policy',
   TERMS_CONDITIONS = 'Terms & Conditions',
@@ -10,6 +11,7 @@ export enum LINKS {
   COMPOSE = 'Compose',
   ALERTS = 'Alerts',
   SETTINGS = 'Settings',
+  BACK = 'Back',
 }
 
 export enum LINK_VARIANT {

@@ -5,9 +5,10 @@ export enum CLIENT_ROUTES {
 	//misc
 	LANDING = '/',
 	FORBIDDEN = '/forbidden',
+	FORBIDDEN_AUTH = 'forbidden',
 	PAGE_NOT_FOUND = '*',
-	PRIVACY_POLICY = '/privacy-policy',
-	TERMS_CONDITIONS = '/terms-conditions',
+	PRIVACY_POLICY = 'privacy-policy',
+	TERMS_CONDITIONS = 'terms-conditions',
 
 	//auth
 	REGISTER = '/register',

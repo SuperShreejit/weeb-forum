@@ -1,0 +1,79 @@
+@import '../utils/box-shadow';
+@import '../utils/flex';
+@import '../utils/media';
+@import '../utils/pallete';
+@import '../utils/typography';
+@import '../utils/variables';
+@import '../utils/prefixors';
+
+//light theme - mobile first
+.google-btn {
+	@include flex(row, flex-start, center);
+	@include elevated-highlight-shadow(light);
+	@include border-radius(0.5em);
+	padding: 0;
+	overflow: hidden;
+
+	.google-text-container {
+		@include text(phone, caption);
+		background-color: light(google);
+		color: light(on-google);
+		padding: $btn-padding;
+	}
+
+	.google-icon-container {
+		@include flex(row, center, center);
+		background-color: light(on-google);
+		padding: 0.25em;
+	}
+}
+
+.google-btn:hover,
+.google-btn:focus {
+	@include transform-scale(1.05);
+}
+.google-btn:active {
+	@include transform-scale(0.95);
+	box-shadow: none;
+}
+
+//dark theme
+.dark {
+	.google-btn {
+		@include elevated-highlight-shadow(dark);
+
+		.google-text-container {
+			background-color: dark(google);
+			color: dark(on-google);
+		}
+
+		.google-icon-container {
+			background-color: dark(on-google);
+		}
+	}
+}
+
+//media queries
+@include media-tablet {
+	.google-btn {
+		.google-text-container {
+			@include text(tablet, caption);
+		}
+	}
+}
+
+@include media-laptop {
+	.google-btn {
+		.google-text-container {
+			@include text(laptop, caption);
+		}
+	}
+}
+
+@include media-desktop {
+	.google-btn {
+		.google-text-container {
+			@include text(desktop, caption);
+		}
+	}
+}

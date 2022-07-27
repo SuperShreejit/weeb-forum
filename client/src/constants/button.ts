@@ -47,6 +47,7 @@ export enum BUTTON_LABELS {
   UNFOLLOW = 'Unfollow',
   SEND_OTP = 'Send OTP',
   RESEND_OTP = 'Resend OTP',
+  BACK = 'Back',
 }
 
 export enum BUTTON_TYPES {
@@ -54,3 +55,6 @@ export enum BUTTON_TYPES {
 	SUBMIT = 'submit',
 	RESET = 'reset',
 }
+
+export const GOOGLE_ICON_CONTAINER = 'google-icon-container'
+export const GOOGLE_TEXT_CONTAINER = 'google-text-container'

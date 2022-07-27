@@ -1,10 +1,22 @@
 @import '../utils/pallete';
+@import '../utils/prefixors';
 
-@mixin border-bottom ($theme) {
-  @if $theme == 'light' {
-    border-bottom: 1px solid light(border);
-  }
-  @else if $theme == 'dark' {
-    border-bottom: 1px solid dark(border);
-  }
+@mixin border-bottom($theme) {
+	@if $theme == 'light' {
+		border-bottom: 1px solid light(border);
+	} @else if $theme == 'dark' {
+		border-bottom: 1px solid dark(border);
+	}
+}
+
+@mixin border-text {
+	border: none;
+	outline: none;
+	border-bottom: 1px solid currentcolor;
+}
+
+@mixin border-full {
+	border: 1px solid currentcolor;
+	padding: 1em;
+	@include border-radius(0.5em);
 }

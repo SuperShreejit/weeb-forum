@@ -1,0 +1,9 @@
+@import '../utils/flex';
+@import '../utils/media';
+
+//themes don't matter
+//media dont matter
+.form {
+	@include flex(column, flex-start, stretch, 1em);
+	width: 100%;
+}

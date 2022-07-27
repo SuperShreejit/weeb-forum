@@ -6,4 +6,6 @@ export enum PAGE_CONTAINER_CLASS {
   REGISTER = 'register-container',
   VERIFY_EMAIL = 'verify-email-container',
   FORGOT_PASSWORD = 'forgot-password-container',
+  PAGE_NOT_FOUND = 'not-found-container',
+  FORBIDDEN = 'forbidden-container',
 }
