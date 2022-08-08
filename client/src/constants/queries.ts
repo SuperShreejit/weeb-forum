@@ -1,5 +1,6 @@
 export enum QUERIES {
-  USER_PROFILE = 'user-profile'
+  USER_PROFILE = 'user-profile',
+  REGISTER = 'user-register',
 }
 
 export enum QUERY_ERRORS {

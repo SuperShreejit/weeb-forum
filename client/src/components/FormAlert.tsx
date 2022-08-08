@@ -7,15 +7,21 @@ import {
 } from '../constants/forms'
 
 type FormAlertProps = {
-	id: string
+	id?: string
 	errorMsg?: FORM_ERRORS | string
-	successMsg?: SUCCESS_MESSAGE | string
+	successMsg?: SUCCESS_MESSAGE
 }
 
 const FormAlert = ({ errorMsg, successMsg, id }: FormAlertProps) => {
 	if (!successMsg)
 		return (
 			<p className={ERROR_MESSAGE_CLASS} aria-live={ARIA_LIVE} id={id}>
+				{errorMsg}
+			</p>
+		)
+	else if (!id) 
+		return (
+			<p className={ERROR_MESSAGE_CLASS}>
 				{errorMsg}
 			</p>
 		)
