@@ -60,13 +60,14 @@ const VerifyEmailForm = () => {
 					variant={BUTTON_VARIANT.PRIMARY_ELEVATED_ROUNDED}
 					type={BUTTON_TYPES.BUTTON}
 					onClick={() => getOTP(values)}
-					disabled={isValid}
+					disabled={!touched.email || !isValid}
 				/>
 				<Button
 					label={BUTTON_LABELS.RESEND_OTP}
 					variant={BUTTON_VARIANT.SECONDARY_TRANSPARENT}
 					onClick={() => getOTP(values)}
 					type={BUTTON_TYPES.BUTTON}
+					disabled={!touched.email || !isValid}
 				/>
 			</div>
 
@@ -84,7 +85,7 @@ const VerifyEmailForm = () => {
 				label={BUTTON_LABELS.LOGIN}
 				dirty={dirty}
 				isSubmitting={isSubmitting}
-				isValid={isValid}
+				isValid={!(isValid && dirty) || isSubmitting}
 			/>
 		</form>
 	)

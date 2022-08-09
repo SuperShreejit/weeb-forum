@@ -178,6 +178,10 @@
 	pointer-events: none;
 }
 
+.transparent-btn:disabled {
+	background-color: transparent;
+}
+
 //media queries
 @include media-tablet {
 	.btn {
