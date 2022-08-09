@@ -1,3 +1,4 @@
+import { ref } from 'yup'
 import { string, object } from 'yup'
 import {
 	FIELD_NAMES,
@@ -31,7 +32,7 @@ export const registerValidationSchema = object({
 		.max(INPUT_LENGTH.USERNAME_MAX, FORM_ERRORS.INVALID_USERNAME_LENGTH)
 		.matches(REGEX.USERNAME, FORM_ERRORS.INVALID_USERNAME)
 		.notOneOf(
-			[FIELD_NAMES.EMAIL, FIELD_NAMES.PASSWORD],
+			[ref(FIELD_NAMES.EMAIL), ref(FIELD_NAMES.PASSWORD)],
 			FORM_ERRORS.USERNAME_OTHERS_SAME,
 		),
 	email: string()
@@ -45,11 +46,11 @@ export const registerValidationSchema = object({
 		.max(INPUT_LENGTH.PASSWORD_MAX, FORM_ERRORS.INVALID_PASSWORD_LENGTH)
 		.matches(REGEX.PASSWORD, FORM_ERRORS.INVALID_PASSWORD)
 		.notOneOf(
-			[FIELD_NAMES.USERNAME, FIELD_NAMES.EMAIL, FIELD_NAMES.NAME],
+			[ref(FIELD_NAMES.USERNAME), ref(FIELD_NAMES.EMAIL), ref(FIELD_NAMES.NAME)],
 			FORM_ERRORS.PASSWORD_OTHERS_SAME,
 		),
 	confirmPassword: string()
 		.trim()
-		.oneOf([FIELD_NAMES.PASSWORD], FORM_ERRORS.PASSWORD_DIFFERENT)
+		.oneOf([ref(FIELD_NAMES.PASSWORD)], FORM_ERRORS.PASSWORD_DIFFERENT)
 		.required(FORM_ERRORS.MISSING_PASSWORD),
 })

@@ -44,21 +44,22 @@
 		color: light(success);
 	}
 
-	.error-msg {
-		color: light(danger);
-		@include text(phone, paragraph);
-		width: 100%;
-	}
-
-	.success-msg {
-		width: 100%;
-		color: light(success);
-		@include text(phone, paragraph);
-	}
-
-	.text:focus, .text:focus {
+	.text:focus,
+	.text:focus {
 		border-width: 2px;
 	}
+}
+
+.error-msg {
+	color: light(danger);
+	@include text(phone, paragraph);
+	width: 100%;
+}
+
+.success-msg {
+	width: 100%;
+	color: light(success);
+	@include text(phone, paragraph);
 }
 
 //dark theme
@@ -95,12 +96,12 @@
 		input::placeholder {
 			@include text(tablet, input);
 		}
+	}
 
-		.field-hint,
-		.error-msg,
-		.success-msg {
-			@include text(tablet, paragraph);
-		}
+	.field-hint,
+	.error-msg,
+	.success-msg {
+		@include text(tablet, paragraph);
 	}
 }
 

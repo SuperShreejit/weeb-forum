@@ -1,5 +1,9 @@
 import { useFormik } from 'formik'
-import { BUTTON_LABELS, BUTTON_TYPES, BUTTON_VARIANT } from '../constants/button'
+import {
+	BUTTON_LABELS,
+	BUTTON_TYPES,
+	BUTTON_VARIANT,
+} from '../constants/button'
 import {
 	FIELD_CONTROL_VARIANT,
 	FIELD_HINTS,
@@ -16,31 +20,37 @@ import {
 	registerInitialValues,
 } from '../validations/register'
 import FormControl from './FormControl'
-import { useCallback } from 'react'
+import { useCallback, useEffect } from 'react'
 import '../sass/components/_form.scss'
 import useRegister from '../hooks/useRegister'
 import FormAlert from './FormAlert'
 import getError from '../helpers/getError'
 import Button from './Button'
+import useNavigation from '../hooks/useNavigations'
 
 const RegisterForm = () => {
-	const {mutate, isError, error, isLoading, isSuccess, data} = useRegister()
-	const onSubmit = useCallback((values: registerValuesType) => mutate(values), [mutate])
-	
-	const {
-		handleSubmit,
-		dirty,
-		isSubmitting,
-		isValid,
-		errors,
-		touched,
-		getFieldProps,
-		values,
-	} = useFormik({
-		initialValues: registerInitialValues,
-		onSubmit,
-		validationSchema: registerValidationSchema,
-	})
+	const { mutate, isError, error, isLoading, isSuccess, data } = useRegister()
+
+	const { navigateToEmailVerify } = useNavigation()
+
+	const onSubmit = useCallback(
+		(values: registerValuesType) => {
+			mutate(values)
+		},
+		[mutate],
+	)
+
+	const { handleSubmit, dirty, isValid, errors, touched, getFieldProps } =
+		useFormik({
+			initialValues: registerInitialValues,
+			onSubmit,
+			validationSchema: registerValidationSchema,
+		})
+
+	useEffect(() => {
+		if (isSuccess && typeof data !== 'string' && data.data.success)
+			setTimeout(() => navigateToEmailVerify(), 2000)
+	}, [isSuccess, data, navigateToEmailVerify])
 
 	return (
 		<form className={FORM_CLASS} onSubmit={handleSubmit}>
@@ -94,17 +104,21 @@ const RegisterForm = () => {
 				name={FIELD_NAMES.CONFIRM_PASSWORD}
 			/>
 			{isError && <FormAlert errorMsg={getError(error) as string} />}
-			{isSuccess && !data.data.success && (
-				<FormAlert errorMsg={getError(error) as string} />
+			{isSuccess && typeof data !== 'string' && !data.data.success && (
+				<FormAlert errorMsg={data.data.msg} />
 			)}
-			{isSuccess && data.data.success && (
+			{isSuccess && typeof data !== 'string' && data.data.success && (
 				<FormAlert successMsg={SUCCESS_MESSAGE.REGISTER} />
 			)}
 			<Button
 				type={BUTTON_TYPES.SUBMIT}
 				label={BUTTON_LABELS.REGISTER}
 				variant={BUTTON_VARIANT.PRIMARY_ELEVATED_ROUNDED}
-				disabled={!(isValid && dirty) || isSubmitting || isLoading}
+				disabled={
+					!(isValid && dirty) ||
+					isLoading ||
+					(typeof data !== 'string' && isSuccess && data.data.success)
+				}
 			/>
 		</form>
 	)

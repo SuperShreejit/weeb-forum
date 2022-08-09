@@ -1,3 +1,4 @@
+import { ref } from 'yup'
 import { string, object } from 'yup'
 import {
 	FIELD_NAMES,
@@ -28,7 +29,7 @@ export const resetPasswordValidationSchema = object({
 	confirmPassword: string()
 		.trim()
 		.required(FORM_ERRORS.MISSING_PASSWORD)
-		.oneOf([FIELD_NAMES.CONFIRM_NEW_PASSWORD], FORM_ERRORS.PASSWORD_DIFFERENT),
+		.oneOf([ref(FIELD_NAMES.CONFIRM_NEW_PASSWORD)], FORM_ERRORS.PASSWORD_DIFFERENT),
 	otp: string()
 		.trim()
 		.required(FORM_ERRORS.MISSING_OTP)

@@ -1,5 +1,5 @@
 import {
-  FIELD_CONTROL_VARIANT,
+	FIELD_CONTROL_VARIANT,
 	FIELD_CLASSES,
 	FIELD_NAMES,
 	FORM_CONTROL_CLASS,
@@ -36,13 +36,13 @@ const FormControl = ({
 	...rest
 }: FormControlProps) => {
 	const errorId = `${name}-error`
-  
+
 	return (
 		<div className={FORM_CONTROL_CLASS}>
 			<label
-				className={`${LABEL_CLASS} ${error ? FIELD_CLASSES.ERROR : ''} ${
-					touched && !error ? FIELD_CLASSES.SUCCESS : ''
-				}`}
+				className={`${LABEL_CLASS} 
+				${touched && error ? FIELD_CLASSES.ERROR : ''}
+				${touched && !error ? FIELD_CLASSES.SUCCESS : ''}`}
 				htmlFor={name}
 			>
 				{label}
@@ -50,9 +50,9 @@ const FormControl = ({
 			<FieldInput
 				type={variant}
 				name={name}
-				className={`${FIELD_CLASSES.TEXT} ${error ? FIELD_CLASSES.ERROR : ''} ${
-					touched && !error ? FIELD_CLASSES.SUCCESS : ''
-				}`}
+				className={`${FIELD_CLASSES.TEXT} ${
+					touched && error ? FIELD_CLASSES.ERROR : ''
+				} ${touched && !error ? FIELD_CLASSES.SUCCESS : ''}`}
 				{...rest}
 				aria-invalid={error ? true : false}
 				aria-describedby={hint ? hintId : errorId}

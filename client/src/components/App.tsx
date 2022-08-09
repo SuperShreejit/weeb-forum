@@ -19,6 +19,7 @@ import Notifications from '../pages/Notifications'
 import PrivacyPolicy from '../pages/PrivacyPolicy'
 import TermsConditions from '../pages/TermsConditions'
 import PublicLayout from '../pages/PublicLayout'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 const App = () => (
 	<Router>
@@ -56,8 +57,8 @@ const App = () => (
 				<Route path={CLIENT_ROUTES.FORBIDDEN} element={<Forbidden />} />
 				<Route path={CLIENT_ROUTES.PAGE_NOT_FOUND} element={<PageNotFound />} />
 			</Route>
-			
 		</Routes>
+		<ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
 	</Router>
 )
 

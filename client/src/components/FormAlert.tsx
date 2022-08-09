@@ -13,24 +13,16 @@ type FormAlertProps = {
 }
 
 const FormAlert = ({ errorMsg, successMsg, id }: FormAlertProps) => {
-	if (!successMsg)
+	if (errorMsg && id)
 		return (
 			<p className={ERROR_MESSAGE_CLASS} aria-live={ARIA_LIVE} id={id}>
 				{errorMsg}
 			</p>
 		)
-	else if (!id) 
-		return (
-			<p className={ERROR_MESSAGE_CLASS}>
-				{errorMsg}
-			</p>
-		)
-	else if (!errorMsg)
-		return (
-			<p className={SUCCESS_MESSAGE_CLASS} aria-live={ARIA_LIVE} id={id}>
-				{successMsg}
-			</p>
-		)
+	else if (successMsg)
+		return <p className={SUCCESS_MESSAGE_CLASS}>{successMsg}</p>
+	else if (!id && errorMsg)
+		return <p className={ERROR_MESSAGE_CLASS}>{errorMsg}</p>
 
 	return null
 }

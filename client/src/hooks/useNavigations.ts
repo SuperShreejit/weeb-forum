@@ -14,7 +14,9 @@ const useNavigation = () => {
 
 	const goBack = useCallback(() => navigate(-1), [navigate])
 
-	return { navigateToSignUp, navigateToSignIn, goBack }
+	const navigateToEmailVerify = useCallback(() => navigate(CLIENT_ROUTES.VERIFY_EMAIL), [navigate])
+
+	return { navigateToSignUp, navigateToSignIn, goBack, navigateToEmailVerify }
 }
 
 export default useNavigation
