@@ -5,6 +5,9 @@ export enum PARAGRAPHS {
 	LOGIN = 'Already a user?',
 	REGISTER = "Don't have an account?",
 	FORGOT_PASSWORD = 'Forgot your password?',
+	VERIFY_EMAIL = 'You are just one step away from registration! Please verify your email.',
+	RESET_PASSWORD = 'Please provide your email for OTP verification.',
+	DEACTIVATE = 'Please provide your email for OTP verification.',
 }
 
 export const PARAGRAPH_CLASS = 'paragraph'

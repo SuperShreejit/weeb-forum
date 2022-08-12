@@ -105,6 +105,7 @@ export enum SUCCESS_MESSAGE {
 	CREATE_COMMENT = 'Successfully Commented!',
 	EDIT_POST = 'Successfully Updated Post!',
 	EDIT_COMMENT = 'Successfully Updated Comment!',
+	SEND_OTP = 'Successfully OTP Sent to the email provided!',
 }
 
 export enum FORM_ERRORS {

@@ -34,9 +34,7 @@ const RegisterForm = () => {
 	const { navigateToEmailVerify } = useNavigation()
 
 	const onSubmit = useCallback(
-		(values: registerValuesType) => {
-			mutate(values)
-		},
+		(values: registerValuesType) => mutate(values),
 		[mutate],
 	)
 
@@ -48,8 +46,11 @@ const RegisterForm = () => {
 		})
 
 	useEffect(() => {
+		let timeout: NodeJS.Timeout
 		if (isSuccess && typeof data !== 'string' && data.data.success)
-			setTimeout(() => navigateToEmailVerify(), 2000)
+			timeout = setTimeout(() => navigateToEmailVerify(), 2000)
+		
+		return () => clearInterval(timeout)
 	}, [isSuccess, data, navigateToEmailVerify])
 
 	return (

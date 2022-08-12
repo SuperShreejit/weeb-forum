@@ -26,7 +26,7 @@ import '../sass/components/_form.scss'
 
 const ForgotPassword = () => {
 	const onSubmit = useCallback((values: ForgotPasswordType) => {}, [])
-  const getOTP = useGetOTP()
+	const { mutate: getOTP } = useGetOTP()
 
 	const {
 		handleSubmit,
@@ -65,7 +65,7 @@ const ForgotPassword = () => {
 				<Button
 					label={BUTTON_LABELS.RESEND_OTP}
 					variant={BUTTON_VARIANT.SECONDARY_TRANSPARENT}
-					onClick={() => getOTP(values)}
+					onClick={() => getOTP({ email: values.email })}
 					type={BUTTON_TYPES.BUTTON}
 				/>
 			</div>

@@ -10,27 +10,55 @@ import {
 	FIELD_NAMES,
 	FORM_CLASS,
 	LABELS,
-	PLACEHOLDERS
+	PLACEHOLDERS,
+	SUCCESS_MESSAGE,
 } from '../constants/forms'
-import useGetOTP from '../hooks/useGetOTP'
+import useEmailVerify from '../hooks/useEmailVerify'
 import {
 	verifyEmailInitialValues,
 	verifyEmailValidationSchema,
 	VerifyEmailValuesType,
 } from '../validations/verifyEmail'
 import Button from './Button'
-import FormButtons from './FormButtons'
 import FormControl from './FormControl'
 import '../sass/components/_form.scss'
-
-const onSubmit = (values: VerifyEmailValuesType) => { }
+import { useCallback, useEffect } from 'react'
+import FormAlert from './FormAlert'
+import getError from '../helpers/getError'
+import Paragraph from './Paragraph'
+import { PARAGRAPHS, PARAGRAPH_VARIANT } from '../constants/paragraph'
+import useNavigation from '../hooks/useNavigations'
+import useCountdown from '../hooks/useCountdown'
+import Countdown from './Countdown'
 
 const VerifyEmailForm = () => {
 	const {
-    handleSubmit,
-    values,
+		verifyEmail,
+		getOTP,
+		OTPIsError,
+		OTPData,
+		OTPError,
+		OTPIsLoading,
+		OTPIsSuccess,
+		verifyEmailData,
+		verifyEmailError,
+		verifyEmailIsError,
+		verifyEmailIsLoading,
+		verifyEmailIsSuccess,
+	} = useEmailVerify()
+
+	const onSubmit = useCallback(
+		(values: VerifyEmailValuesType) => alert('email verified'),
+		[verifyEmail],
+	)
+
+	const { navigateToSignIn } = useNavigation()
+	const { disabledButton, startTimer } = useCountdown()
+
+	const {
+		handleSubmit,
+		values,
 		dirty,
-		isSubmitting,
 		isValid,
 		errors,
 		touched,
@@ -39,11 +67,33 @@ const VerifyEmailForm = () => {
 		initialValues: verifyEmailInitialValues,
 		onSubmit,
 		validationSchema: verifyEmailValidationSchema,
-  })
-  const getOTP = useGetOTP()
+	})
+
+	const handleOTP = useCallback(() => {
+		// getOTP({ email: values.email })
+		alert('otp: 3456')
+		startTimer()
+	}, [startTimer])
+
+	useEffect(() => {
+		let timeout: NodeJS.Timeout
+		if (
+			verifyEmailIsSuccess &&
+			typeof verifyEmailData !== 'string' &&
+			verifyEmailData?.data.success
+		)
+			timeout = setTimeout(() => navigateToSignIn(), 2000)
+
+		return () => clearTimeout(timeout)
+	}, [verifyEmailIsSuccess, verifyEmailData, navigateToSignIn])
 
 	return (
 		<form className={FORM_CLASS} onSubmit={handleSubmit}>
+			<Paragraph
+				variant={PARAGRAPH_VARIANT.REGULAR}
+				text={PARAGRAPHS.VERIFY_EMAIL}
+			/>
+
 			<FormControl
 				error={errors.email}
 				label={LABELS.EMAIL}
@@ -54,21 +104,33 @@ const VerifyEmailForm = () => {
 				name={FIELD_NAMES.EMAIL}
 			/>
 
-			<div className={CONTAINER_CLASS.FLEX}>
-				<Button
-					label={BUTTON_LABELS.SEND_OTP}
-					variant={BUTTON_VARIANT.PRIMARY_ELEVATED_ROUNDED}
-					type={BUTTON_TYPES.BUTTON}
-					onClick={() => getOTP(values)}
-					disabled={!touched.email || !isValid}
-				/>
-				<Button
-					label={BUTTON_LABELS.RESEND_OTP}
-					variant={BUTTON_VARIANT.SECONDARY_TRANSPARENT}
-					onClick={() => getOTP(values)}
-					type={BUTTON_TYPES.BUTTON}
-					disabled={!touched.email || !isValid}
-				/>
+			<div className={CONTAINER_CLASS.FLEX_VERITICAL}>
+				{OTPIsError && <FormAlert errorMsg={getError(OTPError) as string} />}
+				{OTPIsSuccess &&
+					typeof OTPData !== 'string' &&
+					OTPData?.data.success === false && (
+						<FormAlert errorMsg={OTPData?.data.msg} />
+					)}
+				{OTPIsSuccess &&
+					typeof OTPData !== 'string' &&
+					OTPData?.data.success === true && (
+						<FormAlert successMsg={SUCCESS_MESSAGE.SEND_OTP} />
+					)}
+
+				<div className={CONTAINER_CLASS.FLEX}>
+					<Countdown />
+					<Button
+						label={BUTTON_LABELS.SEND_OTP}
+						variant={BUTTON_VARIANT.PRIMARY_ELEVATED_ROUNDED}
+						type={BUTTON_TYPES.BUTTON}
+						onClick={handleOTP}
+						disabled={
+							!touched.email ||
+							Boolean(errors.email) ||
+							disabledButton
+						}
+					/>
+				</div>
 			</div>
 
 			<FormControl
@@ -81,11 +143,25 @@ const VerifyEmailForm = () => {
 				name={FIELD_NAMES.OTP}
 			/>
 
-			<FormButtons
-				label={BUTTON_LABELS.LOGIN}
-				dirty={dirty}
-				isSubmitting={isSubmitting}
-				isValid={!(isValid && dirty) || isSubmitting}
+			{verifyEmailIsError && (
+				<FormAlert errorMsg={getError(verifyEmailError) as string} />
+			)}
+			{verifyEmailIsSuccess &&
+				typeof verifyEmailData !== 'string' &&
+				verifyEmailData?.data.success === false && (
+					<FormAlert errorMsg={verifyEmailData?.data.msg} />
+				)}
+			{verifyEmailIsSuccess &&
+				typeof verifyEmailData !== 'string' &&
+				verifyEmailData?.data.success === true && (
+					<FormAlert successMsg={SUCCESS_MESSAGE.EMAIL_VERIFY} />
+				)}
+
+			<Button
+				type={BUTTON_TYPES.SUBMIT}
+				label={BUTTON_LABELS.VERIFY_EMAIL}
+				variant={BUTTON_VARIANT.PRIMARY_ELEVATED_ROUNDED}
+				disabled={!(isValid && dirty) || verifyEmailIsLoading}
 			/>
 		</form>
 	)

@@ -48,6 +48,7 @@ export enum BUTTON_LABELS {
   SEND_OTP = 'Send OTP',
   RESEND_OTP = 'Resend OTP',
   BACK = 'Back',
+  VERIFY_EMAIL = 'Verify Email',
 }
 
 export enum BUTTON_TYPES {
