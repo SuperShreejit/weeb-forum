@@ -3,33 +3,39 @@
 @import '../utils/media';
 
 //light theme - mobile first
+
 .title {
-  @include title('phone');
-  color: light(primary);
+  .title-link {
+    text-decoration: none;
+		@include title('phone');
+		color: light(primary);
+	}
 }
 
 //dark theme
 .dark {
-  .title {
-    color: dark(primary);
-  }
+	.title {
+		.title-link {
+			color: dark(primary);
+		}
+	}
 }
 
 //media
 @include media-tablet {
-  .title {
-    @include title(tablet);
-  }
+	.title {
+		@include title(tablet);
+	}
 }
 
 @include media-laptop {
-  .title {
-    @include title(laptop);
-  }
+	.title {
+		@include title(laptop);
+	}
 }
 
 @include media-desktop {
-  .title {
-    @include title(desktop);
-  }
+	.title {
+		@include title(desktop);
+	}
 }

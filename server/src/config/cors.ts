@@ -6,7 +6,8 @@ const corsOptions: CorsOptions = {
 	origin: whitelist,
 	optionsSuccessStatus: 200,
 	methods: CORS_METHODS,
-	allowedHeaders: CORS_HEADERS
+	allowedHeaders: CORS_HEADERS,
+	preflightContinue: true
 }
 
 export default corsOptions

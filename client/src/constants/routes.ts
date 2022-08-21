@@ -41,6 +41,7 @@ export enum SERVER_ROUTES {
 	AUTH_LOGIN_LOCAL = '/login',
 	AUTH_LOGIN_GOOGLE = '/google',
 	AUTH_GOOGLE_REDIRECT = '/google/redirect',
+	AUTH_CURRENT_USER = '/current-user',
 	AUTH_LOGOUT = '/logout',
 
 	//user

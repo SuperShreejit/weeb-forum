@@ -11,12 +11,13 @@ import { NAVLINK_ICON_SIZE } from '../constants/component'
 import '../sass/components/_google-button.scss'
 
 const GoogleButton = () => {
-	const handleGoogleAuth = useGoogleAuth()
+	const { googleLogin } = useGoogleAuth()
+	
 	return (
 		<button
 			type={BUTTON_TYPES.BUTTON}
 			className={`${BUTTON_CLASSES.BASE} ${BUTTON_CLASSES.GOOGLE}`}
-			onClick={handleGoogleAuth}
+			onClick={googleLogin}
 		>
 			<span className={GOOGLE_TEXT_CONTAINER}>
 				{BUTTON_LABELS.GOOGLE}

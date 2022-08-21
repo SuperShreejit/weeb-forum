@@ -2,32 +2,32 @@ import { useMutation } from '@tanstack/react-query'
 import axios, { AxiosError, AxiosResponse } from 'axios'
 import { SERVER_ROUTES } from '../constants/routes'
 import axiosServer from '../lib/axios'
+import { ResetPasswordValuesType } from '../validations/resetPassword'
 
-type GetOTPRequestDataType = { email: string }
-export type GetOTPSuccessResponseType = { success: true }
-export type GetOTPFailResponseType = {
+export type ResetPasswordSuccessType = {
+	success: true
+}
+
+export type ResetPasswordFailType = {
 	success: false
 	msg: string
 }
 
-const useGetOTP = () => {
-	const getOTP = useMutation((data: GetOTPRequestDataType) =>
+const useResetPassword = () =>
+	useMutation((data: ResetPasswordValuesType) =>
 		axiosServer
-			.post<GetOTPSuccessResponseType>(
-				SERVER_ROUTES.USERS_BASE + SERVER_ROUTES.VERIFY_EMAIL,
+			.patch<ResetPasswordSuccessType>(
+				SERVER_ROUTES.USERS_BASE + SERVER_ROUTES.FORGOT_PASSWORD,
 				data,
 			)
 			.then(res => res)
 			.catch((error: Error | AxiosError) => {
 				if (axios.isAxiosError(error) && error.response)
-					return error.response as AxiosResponse<GetOTPFailResponseType>
+					return error.response as AxiosResponse<ResetPasswordFailType>
 				else if (axios.isAxiosError(error) && error.request)
 					return error.message
 				else return error.message
 			}),
 	)
 
-	return getOTP
-}
-
-export default useGetOTP
+export default useResetPassword

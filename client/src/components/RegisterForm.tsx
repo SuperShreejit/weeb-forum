@@ -64,6 +64,7 @@ const RegisterForm = () => {
 				{...getFieldProps(FIELD_NAMES.NAME)}
 				name={FIELD_NAMES.NAME}
 			/>
+			
 			<FormControl
 				error={errors.username}
 				label={LABELS.USERNAME}
@@ -75,6 +76,7 @@ const RegisterForm = () => {
 				hint={FIELD_HINTS.USERNAME}
 				hintId={HINT_ID.USERNAME}
 			/>
+
 			<FormControl
 				error={errors.email}
 				label={LABELS.EMAIL}
@@ -84,6 +86,7 @@ const RegisterForm = () => {
 				{...getFieldProps(FIELD_NAMES.EMAIL)}
 				name={FIELD_NAMES.EMAIL}
 			/>
+
 			<FormControl
 				error={errors.password}
 				label={LABELS.PASSWORD}
@@ -95,6 +98,7 @@ const RegisterForm = () => {
 				hint={FIELD_HINTS.PASSWORD}
 				hintId={HINT_ID.PASSWORD}
 			/>
+
 			<FormControl
 				error={errors.confirmPassword}
 				label={LABELS.CONFIRM_PASSWORD}
@@ -104,6 +108,7 @@ const RegisterForm = () => {
 				{...getFieldProps(FIELD_NAMES.CONFIRM_PASSWORD)}
 				name={FIELD_NAMES.CONFIRM_PASSWORD}
 			/>
+
 			{isError && <FormAlert errorMsg={getError(error) as string} />}
 			{isSuccess && typeof data !== 'string' && !data.data.success && (
 				<FormAlert errorMsg={data.data.msg} />
@@ -111,6 +116,7 @@ const RegisterForm = () => {
 			{isSuccess && typeof data !== 'string' && data.data.success && (
 				<FormAlert successMsg={SUCCESS_MESSAGE.REGISTER} />
 			)}
+
 			<Button
 				type={BUTTON_TYPES.SUBMIT}
 				label={BUTTON_LABELS.REGISTER}

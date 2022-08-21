@@ -10,13 +10,30 @@ const useNavigation = () => {
 		[navigate],
 	)
 
-	const navigateToSignIn = useCallback(() => navigate(CLIENT_ROUTES.LOGIN), [navigate])
+	const navigateToSignIn = useCallback(
+		() => navigate(CLIENT_ROUTES.LOGIN),
+		[navigate],
+	)
 
 	const goBack = useCallback(() => navigate(-1), [navigate])
 
-	const navigateToEmailVerify = useCallback(() => navigate(CLIENT_ROUTES.VERIFY_EMAIL), [navigate])
+	const navigateToEmailVerify = useCallback(
+		() => navigate(CLIENT_ROUTES.VERIFY_EMAIL),
+		[navigate],
+	)
 
-	return { navigateToSignUp, navigateToSignIn, goBack, navigateToEmailVerify }
+	const navigateToTimeline = useCallback(
+		() => navigate(`${CLIENT_ROUTES.AUTH_BASE}/${CLIENT_ROUTES.TIMELINE}`),
+		[navigate],
+	)
+
+	return {
+		navigateToSignUp,
+		navigateToSignIn,
+		goBack,
+		navigateToEmailVerify,
+		navigateToTimeline,
+	}
 }
 
 export default useNavigation

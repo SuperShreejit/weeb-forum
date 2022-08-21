@@ -41,3 +41,4 @@ export enum HEADER_CLASSES {
 export const TITLE = 'WEEB ZONE'
 export const TITLE_CLASS = 'title'
 export const APP_HEADER_CLASS = 'app-header'
+export const TITLE_LINK_CLASS = 'title-link'

@@ -11,12 +11,14 @@ export type ResetPasswordValuesType = {
 	newPassword: string
 	confirmPassword: string
 	otp: string
+	email: string
 }
 
 export const resetPasswordInitialValues = {
 	newPassword: '',
 	confirmPassword: '',
 	otp: '',
+	email: ''
 }
 
 export const resetPasswordValidationSchema = object({
@@ -29,10 +31,17 @@ export const resetPasswordValidationSchema = object({
 	confirmPassword: string()
 		.trim()
 		.required(FORM_ERRORS.MISSING_PASSWORD)
-		.oneOf([ref(FIELD_NAMES.CONFIRM_NEW_PASSWORD)], FORM_ERRORS.PASSWORD_DIFFERENT),
+		.oneOf(
+			[ref(FIELD_NAMES.CONFIRM_NEW_PASSWORD)],
+			FORM_ERRORS.PASSWORD_DIFFERENT,
+		),
 	otp: string()
 		.trim()
 		.required(FORM_ERRORS.MISSING_OTP)
 		.length(INPUT_LENGTH.OTP, FORM_ERRORS.INVALID_OTP_LENGTH)
 		.matches(REGEX.OTP, FORM_ERRORS.INVALID_OTP),
+	email: string()
+		.trim()
+		.required(FORM_ERRORS.MISSING_EMAIL)
+		.email(FORM_ERRORS.INVALID_EMAIL),
 })

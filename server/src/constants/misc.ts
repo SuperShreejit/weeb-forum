@@ -23,7 +23,11 @@ export enum NODE_ENV {
 	PRODUCTION = 'production',
 }
 
-export const whitelist = ['http://localhost:3000', 'http://localhost:5000']
+export const whitelist = [
+	'http://localhost:3000',
+	'http://localhost:5000',
+	'https://accounts.google.com',
+]
 Object.freeze(whitelist)
 
 export const CORS_METHODS = ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS']

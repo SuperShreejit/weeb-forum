@@ -3,50 +3,61 @@ import { RootState, AppDispatch } from '../lib/redux/store'
 import { AuthState } from '../lib/redux/features/auth.slice'
 import { useCallback, useMemo } from 'react'
 import { logoutUser } from '../lib/redux/features/auth.slice'
-import { useQuery, QueryFunction } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import { QUERIES } from '../constants/queries'
 import { SERVER_ROUTES } from '../constants/routes'
 import axiosServer from '../lib/axios'
+import useNavigation from './useNavigations'
+import { AxiosResponse } from 'axios'
 
-type UserType =
-	| {
+type UserType = {
+	user: {
+		id: string
+		name: string
+		username: string
+		email: string
+		authType: string
+		avatarId: {
 			id: string
-			name: string
-			username: string
-			email: string
-			authType: string
-			avatarId: {
-				id: string
-				avatar: string
-				mimeType: string
-				filename: string
-			}
-	  }
-	| undefined
-
-const fetchUser: QueryFunction<UserType> = ({ queryKey }) => {
-	const url = `${SERVER_ROUTES.USERS_BASE}\\${queryKey[1]}`
-	return axiosServer.get(url)
+			avatar: string
+			mimeType: string
+			filename: string
+		}
+	}
 }
 
 const useAuth = () => {
 	const auth = useSelector<RootState, AuthState>(store => store.auth)
 	const dispatch = useDispatch<AppDispatch>()
+	const { navigateToSignIn } = useNavigation()
 
-	const res = useQuery<UserType>([QUERIES.USER_PROFILE, auth.userId], fetchUser)
+	const res = useQuery<AxiosResponse<UserType, any>>(
+		[QUERIES.USER_PROFILE],
+		() =>
+			axiosServer
+				.get<UserType>(
+					SERVER_ROUTES.AUTH_BASE + SERVER_ROUTES.AUTH_CURRENT_USER,
+				)
+				.then(res => res),
+	)
 
 	const image = useMemo(() => {
-		if (res.isLoading || res.isError || !res.data?.avatarId) return {}
+		if (res.isLoading || res.isError) return {}
 
-		return {
-			mimeType: res.data?.avatarId.mimeType,
-			buffer: res.data?.avatarId.avatar,
-		}
+		if (res.isSuccess)
+			return {
+				mimeType: res.data?.data?.user?.avatarId.mimeType,
+				buffer: res.data?.data?.user?.avatarId.avatar,
+			}
 	}, [res])
 
-	const logout = useCallback(() => dispatch(logoutUser()), [dispatch])
+	const logout = useCallback(() => {
+		dispatch(logoutUser())
+		axiosServer(SERVER_ROUTES.AUTH_BASE + SERVER_ROUTES.AUTH_LOGOUT)
+		navigateToSignIn()
+	}, [dispatch, navigateToSignIn])
 
-	return { ...auth, logout, user: res?.data, image, res }
+	return { ...auth, logout, user: res?.data?.data?.user, image, res }
 }
 
 export default useAuth

@@ -81,7 +81,7 @@ const google = new GoogleStrategy(
 passport.serializeUser((user, done) => done(null, user))
 passport.deserializeUser(async (id: string, done) => {
 	try {
-		const user = await findUserById(id)
+		const user = await findUserWithAvatar(id)
 		done(null, user)
 	} catch (error) {
 		done(getError(error))

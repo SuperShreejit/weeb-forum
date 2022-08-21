@@ -28,8 +28,6 @@ import getError from '../helpers/getError'
 import Paragraph from './Paragraph'
 import { PARAGRAPHS, PARAGRAPH_VARIANT } from '../constants/paragraph'
 import useNavigation from '../hooks/useNavigations'
-import useCountdown from '../hooks/useCountdown'
-import Countdown from './Countdown'
 
 const VerifyEmailForm = () => {
 	const {
@@ -38,7 +36,6 @@ const VerifyEmailForm = () => {
 		OTPIsError,
 		OTPData,
 		OTPError,
-		OTPIsLoading,
 		OTPIsSuccess,
 		verifyEmailData,
 		verifyEmailError,
@@ -48,12 +45,11 @@ const VerifyEmailForm = () => {
 	} = useEmailVerify()
 
 	const onSubmit = useCallback(
-		(values: VerifyEmailValuesType) => alert('email verified'),
+		(values: VerifyEmailValuesType) => verifyEmail(values),
 		[verifyEmail],
 	)
 
 	const { navigateToSignIn } = useNavigation()
-	const { disabledButton, startTimer } = useCountdown()
 
 	const {
 		handleSubmit,
@@ -70,10 +66,8 @@ const VerifyEmailForm = () => {
 	})
 
 	const handleOTP = useCallback(() => {
-		// getOTP({ email: values.email })
-		alert('otp: 3456')
-		startTimer()
-	}, [startTimer])
+		getOTP({ email: values.email })
+	}, [getOTP, values])
 
 	useEffect(() => {
 		let timeout: NodeJS.Timeout
@@ -117,20 +111,13 @@ const VerifyEmailForm = () => {
 						<FormAlert successMsg={SUCCESS_MESSAGE.SEND_OTP} />
 					)}
 
-				<div className={CONTAINER_CLASS.FLEX}>
-					<Countdown />
-					<Button
-						label={BUTTON_LABELS.SEND_OTP}
-						variant={BUTTON_VARIANT.PRIMARY_ELEVATED_ROUNDED}
-						type={BUTTON_TYPES.BUTTON}
-						onClick={handleOTP}
-						disabled={
-							!touched.email ||
-							Boolean(errors.email) ||
-							disabledButton
-						}
-					/>
-				</div>
+				<Button
+					label={BUTTON_LABELS.SEND_OTP}
+					variant={BUTTON_VARIANT.PRIMARY_ELEVATED_ROUNDED}
+					type={BUTTON_TYPES.BUTTON}
+					onClick={handleOTP}
+					disabled={!touched.email || Boolean(errors.email)}
+				/>
 			</div>
 
 			<FormControl

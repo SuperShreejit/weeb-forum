@@ -9,6 +9,8 @@ import errorHandler from '../helpers/ErrorHandler'
 import { CustomError } from '../helpers/CustomError'
 import { StatusCodes } from 'http-status-codes'
 import { STRATEGY } from '../constants/misc'
+import { AuthenticateOptionsGoogle } from 'passport-google-oauth20'
+import ROUTES from '../constants/routes'
 
 export const register = async (req: Request, res: Response) => {
 	const { name, email, username, password } = req.body
@@ -56,24 +58,24 @@ export const localLogin = (req: Request, res: Response) => {
 		if (!req.user)
 			throw new CustomError(
 				ERRORS.INTERNAL_ERROR,
-				StatusCodes.INTERNAL_SERVER_ERROR
+				StatusCodes.INTERNAL_SERVER_ERROR,
 			)
+
 		res.json({ success: true, user: req.user })
 	} catch (error) {
 		errorHandler(error, res)
 	}
 }
 
-export const googleLogin = async (req: Request, res: Response) => {
+export const currentUser = async (req: Request, res: Response) => {
 	try {
 		if (!req.user)
 			throw new CustomError(
 				ERRORS.INTERNAL_ERROR,
-				StatusCodes.INTERNAL_SERVER_ERROR
+				StatusCodes.INTERNAL_SERVER_ERROR,
 			)
-
+		
 		res.json({
-			success: true,
 			user: req.user,
 		})
 	} catch (error) {
@@ -88,4 +90,8 @@ export const googleAuthenticateOptions = {
 	scope: ['profile', 'email'],
 }
 
-export const localAuthenticationOptions = { failureMessage: true }
+export const googleLoginOptions: AuthenticateOptionsGoogle = {
+	failureRedirect:
+		ROUTES.FULL_CLIENT_URL + ROUTES.CLIENT_LOGIN + '?googleLoginFail=true',
+	successRedirect: ROUTES.FULL_CLIENT_URL + ROUTES.CLIENT_USER_TIMELINE,
+}

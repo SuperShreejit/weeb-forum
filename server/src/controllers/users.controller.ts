@@ -18,6 +18,8 @@ import {
 	findUserWithAvatar,
 	findUsers,
 } from '../services/user.services'
+import generateSalt from '../helpers/generateSalt'
+import bcrypt from 'bcrypt'
 
 export const sendVerifyEmail = async (req: Request, res: Response) => {
 	const email = req.body.email
@@ -35,7 +37,7 @@ export const sendVerifyEmail = async (req: Request, res: Response) => {
 				name: user.username,
 				home: ROUTES.FULL_CLIENT_URL,
 				OTP,
-			}
+			},
 		)
 		sendMail(user.email, SUBJECTS.EMAIL_VERIFY, text, html)
 
@@ -81,7 +83,7 @@ export const sendForgotPassword = async (req: Request, res: Response) => {
 				name: user.username,
 				home: ROUTES.FULL_CLIENT_URL,
 				OTP,
-			}
+			},
 		)
 		sendMail(user.email, SUBJECTS.RESET_PASSWORD, text, html)
 
@@ -94,7 +96,7 @@ export const sendForgotPassword = async (req: Request, res: Response) => {
 export const resetPassword = async (req: Request, res: Response) => {
 	const { otp, email, newPassword } = req.body
 	try {
-			const user = await findSingleUser({ email })
+		const user = await findSingleUser({ email })
 		if (!user)
 			throw new CustomError(ERRORS.USER_NOT_FOUND, StatusCodes.NOT_FOUND)
 
@@ -102,7 +104,9 @@ export const resetPassword = async (req: Request, res: Response) => {
 		if (!isValid)
 			throw new CustomError(ERRORS.INVALID_OTP, StatusCodes.CONFLICT)
 
-		await updateUser(user.id, { password: newPassword })
+		const salt = await generateSalt()
+		const hash = await bcrypt.hash(newPassword, salt)
+		await updateUser(user.id, { password: hash })
 
 		res.json({ success: true })
 	} catch (error) {
@@ -149,7 +153,10 @@ export const changePassword = async (req: Request, res: Response) => {
 		if (!isPasswordValid)
 			throw new CustomError(ERRORS.INCORRECT_PASSWORD, StatusCodes.UNAUTHORIZED)
 
-		await updateUser(user.id, { password: newPassword })
+		const salt = await generateSalt()
+		const hash = await bcrypt.hash(newPassword, salt)
+
+		await updateUser(user.id, { password: hash })
 		res.json({ success: true })
 	} catch (error) {
 		errorHandler(error, res)

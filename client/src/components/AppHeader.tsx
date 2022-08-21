@@ -27,21 +27,15 @@ const AppHeader = () => {
 	if (res.isLoading)
 		return (
 			<header className={header_class(isDark)}>
-				<Title />
+				<Title path={CLIENT_ROUTES.AUTH_BASE + CLIENT_ROUTES.TIMELINE} />
 				<Loading />
 			</header>
 		)
 
-	if (
-		res.isError ||
-		!user ||
-		!user.avatarId ||
-		!image.mimeType ||
-		!image.buffer
-	)
+	if (res.isError || !user || !image?.mimeType || !image?.buffer)
 		return (
 			<header className={header_class(isDark)}>
-				<Title />
+				<Title path={CLIENT_ROUTES.AUTH_BASE + CLIENT_ROUTES.TIMELINE} />
 				<Paragraph
 					variant={PARAGRAPH_VARIANT.REGULAR}
 					text={`${QUERY_ERRORS.FETCH_USER_FAILED}: ${getError(res.error)}`}
@@ -51,16 +45,16 @@ const AppHeader = () => {
 
 	return (
 		<header className={header_class(isDark)}>
-			<Title />
+			<Title path={CLIENT_ROUTES.AUTH_BASE + CLIENT_ROUTES.TIMELINE} />
 			<div className={CONTAINER_CLASS.FLEX}>
 				<div className={CONTAINER_CLASS.FLEX}>
 					<ProfileImage
 						image={image}
 						to={`${CLIENT_ROUTES.AUTH_BASE}/${CLIENT_ROUTES.PROFILE}`}
-						username={user.username}
+						username={user?.username}
 					/>
 					<NavLink
-						label={user.username}
+						label={user?.username}
 						variant={LINK_VARIANT.CAPTION_LINK}
 						to={`${CLIENT_ROUTES.AUTH_BASE}/${CLIENT_ROUTES.PROFILE}`}
 					/>

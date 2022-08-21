@@ -49,6 +49,7 @@ export enum BUTTON_LABELS {
   RESEND_OTP = 'Resend OTP',
   BACK = 'Back',
   VERIFY_EMAIL = 'Verify Email',
+  RESET_PASSWORD = 'Reset Password',
 }
 
 export enum BUTTON_TYPES {
