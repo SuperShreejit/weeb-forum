@@ -33,6 +33,14 @@ const App = () => (
 				<Route path={CLIENT_ROUTES.SETTINGS} element={<UserSettings />} />
 				<Route path={CLIENT_ROUTES.SEARCH} element={<Search />} />
 				<Route path={CLIENT_ROUTES.NOTIFICATIONS} element={<Notifications />} />
+				<Route
+					path={CLIENT_ROUTES.PRIVACY_POLICY}
+					element={<PrivacyPolicy />}
+				/>
+				<Route
+					path={CLIENT_ROUTES.TERMS_CONDITIONS}
+					element={<TermsConditions />}
+				/>
 				<Route path={CLIENT_ROUTES.FORBIDDEN_AUTH} element={<Forbidden />} />
 				<Route path={CLIENT_ROUTES.PAGE_NOT_FOUND} element={<PageNotFound />} />
 			</Route>
@@ -45,14 +53,6 @@ const App = () => (
 				<Route
 					path={CLIENT_ROUTES.FORGOT_PASSWORD}
 					element={<ForgotPassword />}
-				/>
-				<Route
-					path={CLIENT_ROUTES.PRIVACY_POLICY}
-					element={<PrivacyPolicy />}
-				/>
-				<Route
-					path={CLIENT_ROUTES.TERMS_CONDITIONS}
-					element={<TermsConditions />}
 				/>
 				<Route path={CLIENT_ROUTES.FORBIDDEN} element={<Forbidden />} />
 				<Route path={CLIENT_ROUTES.PAGE_NOT_FOUND} element={<PageNotFound />} />

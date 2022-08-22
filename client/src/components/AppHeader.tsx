@@ -27,7 +27,7 @@ const AppHeader = () => {
 	if (res.isLoading)
 		return (
 			<header className={header_class(isDark)}>
-				<Title path={CLIENT_ROUTES.AUTH_BASE + CLIENT_ROUTES.TIMELINE} />
+				<Title path={`${CLIENT_ROUTES.AUTH_BASE}/${CLIENT_ROUTES.TIMELINE}`} />
 				<Loading />
 			</header>
 		)
@@ -35,7 +35,7 @@ const AppHeader = () => {
 	if (res.isError || !user || !image?.mimeType || !image?.buffer)
 		return (
 			<header className={header_class(isDark)}>
-				<Title path={CLIENT_ROUTES.AUTH_BASE + CLIENT_ROUTES.TIMELINE} />
+				<Title path={`${CLIENT_ROUTES.AUTH_BASE}/${CLIENT_ROUTES.TIMELINE}`} />
 				<Paragraph
 					variant={PARAGRAPH_VARIANT.REGULAR}
 					text={`${QUERY_ERRORS.FETCH_USER_FAILED}: ${getError(res.error)}`}
@@ -45,7 +45,7 @@ const AppHeader = () => {
 
 	return (
 		<header className={header_class(isDark)}>
-			<Title path={CLIENT_ROUTES.AUTH_BASE + CLIENT_ROUTES.TIMELINE} />
+			<Title path={`${CLIENT_ROUTES.AUTH_BASE}/${CLIENT_ROUTES.TIMELINE}`} />
 			<div className={CONTAINER_CLASS.FLEX}>
 				<div className={CONTAINER_CLASS.FLEX}>
 					<ProfileImage

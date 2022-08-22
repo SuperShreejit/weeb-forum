@@ -1,8 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState, AppDispatch } from '../lib/redux/store'
-import { AuthState } from '../lib/redux/features/auth.slice'
+import { AuthState, login, logoutUser } from '../lib/redux/features/auth.slice'
 import { useCallback, useMemo } from 'react'
-import { logoutUser } from '../lib/redux/features/auth.slice'
 import { useQuery } from '@tanstack/react-query'
 import { QUERIES } from '../constants/queries'
 import { SERVER_ROUTES } from '../constants/routes'
@@ -38,7 +37,10 @@ const useAuth = () => {
 				.get<UserType>(
 					SERVER_ROUTES.AUTH_BASE + SERVER_ROUTES.AUTH_CURRENT_USER,
 				)
-				.then(res => res),
+				.then((res: AxiosResponse<UserType, any>) => {
+					dispatch(login(res.data.user.id))
+					return res
+				}),
 	)
 
 	const image = useMemo(() => {
@@ -53,7 +55,7 @@ const useAuth = () => {
 
 	const logout = useCallback(() => {
 		dispatch(logoutUser())
-		axiosServer(SERVER_ROUTES.AUTH_BASE + SERVER_ROUTES.AUTH_LOGOUT)
+		axiosServer.get(SERVER_ROUTES.AUTH_BASE + SERVER_ROUTES.AUTH_LOGOUT)
 		navigateToSignIn()
 	}, [dispatch, navigateToSignIn])
 

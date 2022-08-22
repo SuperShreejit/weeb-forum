@@ -1,18 +1,22 @@
 import { Outlet } from 'react-router'
 import { DARK_CLASS } from '../constants/pages'
+import useAuth from '../hooks/useAuth'
+import useNavigation from '../hooks/useNavigations'
 import useTheme from '../hooks/useTheme'
 import AppHeader from './AppHeader'
 import Sidebar from './Sidebar'
 
-const divClass = (isDark: boolean) => (isDark ? DARK_CLASS : '')
-
 const Authentication = () => {
 	const { isDark } = useTheme()
+	const { isAuth } = useAuth()
+	const { navigateToSignIn } = useNavigation()
+
+	if (!isAuth) navigateToSignIn()
+
 	return (
-		<div className={divClass(isDark)}>
+		<div className={isDark ? DARK_CLASS : ''}>
 			<AppHeader />
 			<Sidebar />
-			Authentication
 			<Outlet />
 		</div>
 	)
