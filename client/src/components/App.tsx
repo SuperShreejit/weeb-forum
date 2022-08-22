@@ -58,7 +58,7 @@ const App = () => (
 				<Route path={CLIENT_ROUTES.PAGE_NOT_FOUND} element={<PageNotFound />} />
 			</Route>
 		</Routes>
-		<ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
+		{process.env.NODE_ENV === 'development' && <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />}
 	</Router>
 )
 

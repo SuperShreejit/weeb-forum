@@ -7,7 +7,7 @@
 
 //light theme - mobile first
 .app-header {
-	@include flex(row, center, center, 1em);
+	@include flex(row, space-between, center, 1em);
 	@include elevated-shadow(light);
 	@include border-bottom(light);
 	@include topbar-position();
@@ -15,7 +15,7 @@
 	padding: $topbar-padding-mobile;
 
 	.btn,
-	.link {
+	.caption-link {
 		display: none;
 	}
 
@@ -40,8 +40,12 @@
 		padding: $topbar-padding-tablet;
 
 		.btn,
-		.link {
+		.caption-link {
 			display: initial;
+		}
+
+		.icon-btn{
+			display: none;
 		}
 	}
 }

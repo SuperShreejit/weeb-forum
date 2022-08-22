@@ -6,14 +6,29 @@ import NavLink from './NavLink'
 import Paragraph from './Paragraph'
 
 const Info = () => {
-  return (
-    <div className={CONTAINER_CLASS.FLEX_VERITICAL}>
-      <Paragraph variant={PARAGRAPH_VARIANT.REGULAR} text={PARAGRAPHS.COPYRIGHT} />
-      <Paragraph variant={PARAGRAPH_VARIANT.REGULAR} text={PARAGRAPHS.CREATOR} />
-      <NavLink label={LINKS.PRIVACY_POLICY} variant={LINK_VARIANT.REGULAR_SECONDARY} to={CLIENT_ROUTES.PRIVACY_POLICY} />
-      <NavLink label={LINKS.TERMS_CONDITIONS} variant={LINK_VARIANT.REGULAR_SECONDARY} to={CLIENT_ROUTES.TERMS_CONDITIONS} />
-    </div>
-  )
+	return (
+		<div className={CONTAINER_CLASS.FLEX_VERITICAL}>
+			<Paragraph
+				variant={PARAGRAPH_VARIANT.REGULAR}
+				text={PARAGRAPHS.COPYRIGHT}
+			/>
+			<Paragraph
+				variant={PARAGRAPH_VARIANT.REGULAR}
+				text={PARAGRAPHS.CREATOR}
+			/>
+			<NavLink
+				label={LINKS.PRIVACY_POLICY}
+				variant={LINK_VARIANT.REGULAR_SECONDARY}
+				to={CLIENT_ROUTES.PRIVACY_POLICY}
+			/>
+			<br />
+			<NavLink
+				label={LINKS.TERMS_CONDITIONS}
+				variant={LINK_VARIANT.REGULAR_SECONDARY}
+				to={CLIENT_ROUTES.TERMS_CONDITIONS}
+			/>
+		</div>
+	)
 }
 
 export default Info

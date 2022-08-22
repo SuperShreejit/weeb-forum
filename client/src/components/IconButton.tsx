@@ -4,6 +4,7 @@ import {
 	MdClose,
 	MdThumbDown,
 	MdMoreVert,
+	MdLogout
 } from 'react-icons/md'
 import { ELEMENTS, ICON_BUTTON_SIZE } from '../constants/component'
 import { ICON_BUTTON_VARIANT, ICON_BUTTON_CLASS } from '../constants/iconButton'
@@ -43,6 +44,12 @@ const IconButton = ({ variant, ...rest }: IconButtonProps) => {
 			return (
 				<button className={`${ICON_BUTTON_CLASS}`} {...rest}>
 					<MdMoreVert size={ICON_BUTTON_SIZE} />
+				</button>
+			)
+		case ICON_BUTTON_VARIANT.LOGOUT:
+			return (
+				<button className={`${ICON_BUTTON_CLASS}`} {...rest}>
+					<MdLogout size={ICON_BUTTON_SIZE} />
 				</button>
 			)
 		default:

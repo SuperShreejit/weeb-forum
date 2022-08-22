@@ -10,20 +10,12 @@
 	background-color: transparent;
 	color: light(secondary);
 	font-size: 1rem;
-  
-	svg {
-		@include elevated-shadow(light);
-	}
 }
 
 //dark theme
 .dark {
 	.icon-btn {
 		color: dark(secondary);
-
-		svg {
-			@include elevated-shadow(dark);
-		}
 	}
 }
 

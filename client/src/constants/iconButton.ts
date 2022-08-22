@@ -3,7 +3,8 @@ export enum ICON_BUTTON_VARIANT {
   DISLIKE = 'dislike',
   CLOSE = 'close',
   OPTIONS = 'options',
-  COMMENT = 'comment'
+  COMMENT = 'comment',
+  LOGOUT = 'logout',
 }
 
 export const ICON_BUTTON_CLASS = 'icon-btn'

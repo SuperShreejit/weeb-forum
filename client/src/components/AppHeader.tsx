@@ -16,6 +16,8 @@ import { DARK_CLASS } from '../constants/pages'
 import useTheme from '../hooks/useTheme'
 import getError from '../helpers/getError'
 import { QUERY_ERRORS } from '../constants/queries'
+import IconButton from './IconButton'
+import { ICON_BUTTON_VARIANT } from '../constants/iconButton'
 
 const header_class = (isDark: boolean) =>
 	`${APP_HEADER_CLASS} ${isDark ? DARK_CLASS : ''}`
@@ -51,10 +53,10 @@ const AppHeader = () => {
 					<ProfileImage
 						image={image}
 						to={`${CLIENT_ROUTES.AUTH_BASE}/${CLIENT_ROUTES.PROFILE}`}
-						username={user?.username}
+						username={user?.name}
 					/>
 					<NavLink
-						label={user?.username}
+						label={user?.name}
 						variant={LINK_VARIANT.CAPTION_LINK}
 						to={`${CLIENT_ROUTES.AUTH_BASE}/${CLIENT_ROUTES.PROFILE}`}
 					/>
@@ -64,6 +66,7 @@ const AppHeader = () => {
 					variant={BUTTON_VARIANT.SECONDARY_BORDER_ROUNDED}
 					onClick={logout}
 				/>
+				<IconButton variant={ICON_BUTTON_VARIANT.LOGOUT}  />
 			</div>
 		</header>
 	)

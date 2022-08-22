@@ -11,6 +11,7 @@
 	@include downbar-position();
 	background-color: light(neutral);
 	padding: $sidebar-padding-mobile;
+	padding-top: $topbar-height-mobile;
 
 	.navbar {
 		background-color: inherit;
@@ -35,6 +36,7 @@
 	.sidebar {
 		width: 20vw;
 		padding: $sidebar-padding-tablet;
+		padding-top: $topbar-height-tablet;
 		@include sidebar-position($sidebar-top-tablet);
 		@include flex(column, space-around, center, 1em);
 		@include low-elevated-shadow(light);
@@ -80,6 +82,7 @@
 @include media-laptop {
 	.sidebar {
 		padding: $sidebar-padding-laptop;
+		padding-top: $topbar-height-laptop;
 		@include sidebar-position($sidebar-top-laptop);
 
 		.sidebar-img {
@@ -95,6 +98,7 @@
 @include media-desktop {
 	.sidebar {
 		padding: $sidebar-padding-desktop;
+		padding-top: $topbar-height-desktop;
 		@include sidebar-position($sidebar-top-desktop);
 
 		.sidebar-img {

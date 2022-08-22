@@ -5,7 +5,7 @@
 	text-align: center;
 
 	@if $media == 'phone' {
-		font-size: 2rem;
+		font-size: 1.5rem;
 	} @else if $media == 'tablet' {
 		font-size: 2.5rem;
 	} @else if $media == 'laptop' {
@@ -62,7 +62,7 @@
 
 	@if $media == 'phone' {
 		@if $size == 'caption' {
-			font-size: 14px;
+			font-size: 12px;
 		} @else if $size == 'paragraph' {
 			max-width: 40ch;
 			font-size: 0.75rem;
