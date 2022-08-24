@@ -2,9 +2,11 @@ import '../sass/components/_title.scss'
 import { TITLE, TITLE_CLASS, TITLE_LINK_CLASS } from '../constants/header'
 import { Link } from 'react-router-dom'
 
-const Title = ({ path }) => (
+const Title = ({ path }: { path: string }) => (
 	<h1 className={TITLE_CLASS}>
-		<Link className={TITLE_LINK_CLASS} to={path}>{TITLE}</Link>
+		<Link className={TITLE_LINK_CLASS} to={path}>
+			{TITLE}
+		</Link>
 	</h1>
 )
 

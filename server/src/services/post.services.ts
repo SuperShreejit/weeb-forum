@@ -5,6 +5,7 @@ import getError from '../helpers/getError'
 import ERRORS from '../constants/errors'
 import { StatusCodes } from 'http-status-codes'
 import Comment, { CommentDocument } from '../models/Comment'
+import { UserDocument } from 'models/User'
 
 type PostFilterQueryType = FilterQuery<PostDocument>
 type PostUpdateQueryType = UpdateQuery<PostDocument>
@@ -20,6 +21,22 @@ export const findPostWithComments = async (postId: Types.ObjectId) =>
 		.populate<{ comments: CommentDocument[] }>({
 			path: 'comments',
 			options: { sort: '-createdAt' },
+			populate: {
+				path: 'authorId',
+				select: 'id name avatarId',
+				populate: {
+					path: 'avatarId',
+					select: 'avatar mimeType filename',
+				},
+			},
+		})
+		.populate<{ authorId: UserDocument }>({
+			path: 'authorId',
+			select: 'id name avatarId',
+			populate: {
+				path: 'avatarId',
+				select: 'avatar mimeType filename',
+			},
 		})
 		.exec()
 
@@ -30,6 +47,22 @@ export const findRecentPosts = async () =>
 		.populate<{ comments: CommentDocument[] }>({
 			path: 'comments',
 			options: { sort: '-createdAt' },
+			populate: {
+				path: 'authorId',
+				select: 'id name avatarId',
+				populate: {
+					path: 'avatarId',
+					select: 'avatar mimeType filename',
+				},
+			},
+		})
+		.populate<{ authorId: UserDocument }>({
+			path: 'authorId',
+			select: 'id name avatarId',
+			populate: {
+				path: 'avatarId',
+				select: 'avatar mimeType filename',
+			},
 		})
 		.exec()
 
@@ -40,6 +73,22 @@ export const findPostsByUser = async (authorId: Types.ObjectId) =>
 		.populate<{ comments: CommentDocument[] }>({
 			path: 'comments',
 			options: { sort: '-createdAt' },
+			populate: {
+				path: 'authorId',
+				select: 'id name avatarId',
+				populate: {
+					path: 'avatarId',
+					select: 'avatar mimeType filename',
+				},
+			},
+		})
+		.populate<{ authorId: UserDocument }>({
+			path: 'authorId',
+			select: 'id name avatarId',
+			populate: {
+				path: 'avatarId',
+				select: 'avatar mimeType filename',
+			},
 		})
 		.exec()
 

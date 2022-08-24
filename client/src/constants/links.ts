@@ -12,6 +12,8 @@ export enum LINKS {
   ALERTS = 'Alerts',
   SETTINGS = 'Settings',
   BACK = 'Back',
+  VIEW_FULL_POST = 'View Full Post',
+  EDIT_POST = 'Edit Post',
 }
 
 export enum LINK_VARIANT {

@@ -19,8 +19,8 @@ export enum CLIENT_ROUTES {
 
 	//posts
 	CREATE_POST = 'posts/create',
-	VIEW_POST = 'posts/:postId',
-	EDIT_POST = 'posts/edit/:postId',
+	VIEW_POST = 'posts',
+	EDIT_POST = 'posts/edit',
 
 	//users
 	TIMELINE = 'timeline',
@@ -28,6 +28,7 @@ export enum CLIENT_ROUTES {
 	PROFILE = 'profile',
 	SETTINGS = 'settings',
 	NOTIFICATIONS = 'notifications',
+	VIEW_USER = 'user',
 }
 
 export enum SERVER_ROUTES {

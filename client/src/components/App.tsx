@@ -20,13 +20,15 @@ import PrivacyPolicy from '../pages/PrivacyPolicy'
 import TermsConditions from '../pages/TermsConditions'
 import PublicLayout from '../pages/PublicLayout'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import ViewUser from '../pages/ViewUser'
 
 const App = () => (
 	<Router>
 		<Routes>
 			<Route path={CLIENT_ROUTES.AUTH_BASE} element={<Authentication />}>
 				<Route path={CLIENT_ROUTES.CREATE_POST} element={<CreatePost />} />
-				<Route path={CLIENT_ROUTES.VIEW_POST} element={<ViewPost />} />
+				<Route path={`${CLIENT_ROUTES.VIEW_POST}/:postId`} element={<ViewPost />} />
+				<Route path={`${CLIENT_ROUTES.VIEW_USER}/:userId}`} element={<ViewUser />} />
 				<Route path={CLIENT_ROUTES.EDIT_POST} element={<EditPost />} />
 				<Route path={CLIENT_ROUTES.TIMELINE} element={<TimeLine />} />
 				<Route path={CLIENT_ROUTES.PROFILE} element={<Profile />} />

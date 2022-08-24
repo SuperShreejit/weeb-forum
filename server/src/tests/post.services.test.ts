@@ -322,7 +322,7 @@ describe('Post services', () => {
 			comments,
 			commentCount,
 		} = Post
-		assert.equal(authorId, body.authorId, 'authorIds must match')
+		assert.equal(authorId.id, body.authorId, 'authorIds must match')
 		assert.equal(title, body.title, 'titles must match')
 		assert.equal(post, body.post, 'posts must match')
 		assert.deepEqual(keys, body.keys, 'keys must match')
