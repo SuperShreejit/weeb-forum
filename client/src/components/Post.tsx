@@ -116,7 +116,7 @@ const Post = ({ post }: { post: PostType }) => {
 						/>
 					</div>
 				</div>
-				<AddComment />
+				<AddComment postId={post.id} userId={userId} />
 			</div>
 		</div>
 	)

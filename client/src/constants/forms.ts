@@ -45,7 +45,7 @@ export enum LABELS {
 	AVATAR = 'avatar',
 	TITLE = 'title',
 	POST = 'post',
-	COMMENT = 'comment',
+	COMMENT = 'add Comment',
 	KEYS = 'keys',
 	SEARCH = 'search',
 	OTP = 'otp',
@@ -105,6 +105,8 @@ export enum SUCCESS_MESSAGE {
 	CREATE_COMMENT = 'Successfully Commented!',
 	EDIT_POST = 'Successfully Updated Post!',
 	EDIT_COMMENT = 'Successfully Updated Comment!',
+	DELETE_POST = 'Successfully Delete Post!',
+	DELETE_COMMENT = 'Successfully Delete Comment!',
 	SEND_OTP = 'Successfully OTP Sent to the email provided!',
 }
 
@@ -114,6 +116,7 @@ export enum FORM_ERRORS {
 	MISSING_EMAIL = 'Email cannot be empty',
 	MISSING_NAME = 'Name cannot be empty',
 	MISSING_OTP = 'OTP cannot be empty',
+	MISSING_COMMENT = 'Comment cannot be empty',
 	INVALID_USERNAME = 'Must be a valid username',
 	INVALID_PASSWORD = 'Must be a valid password',
 	INVALID_OTP = 'Must be a valid OTP',
@@ -121,6 +124,8 @@ export enum FORM_ERRORS {
 	INVALID_USERNAME_LENGTH = 'Username must be of length 6-20',
 	INVALID_PASSWORD_LENGTH = 'Username must be of length 6-20',
 	INVALID_OTP_LENGTH = 'Username must be of length 6-20',
+	INVALID_USERID = 'Invalid UserId',
+	INVALID_POSTID = 'Invalid PostId',
 	PASSWORD_OTHERS_SAME = 'Password must not match name, username or email',
 	USERNAME_OTHERS_SAME = 'Username must not match password or email',
 	PASSWORD_DIFFERENT = 'Passwords must match',
@@ -131,6 +136,7 @@ export const REGEX = {
 		/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*\s)(?=.*[!@#$%,_-]).{6,20}$/,
 	USERNAME: /^(?!.*\s)[a-zA-Z][a-zA-Z0-9-_@]{6,20}$/,
 	OTP: /^\d{4}$/,
+	IDS: /^[a-fA-F0-9]{24}$/,
 }
 Object.freeze(REGEX)
 

@@ -9,5 +9,15 @@ export enum POST_CLASSES {
   POST_LIKE = 'post-likes',
   POST_DISLIKE = 'post-dislikes',
   POST_COMMENT = 'post-comments',
+  POST_MENU = 'post-menu',
+  POST_MENU_HIDE = 'post-menu-hide',
+  POST_MENU_OPTION = 'post-menu-option',
+  POST_MENU_DELETE_OPTION = 'post-menu-remove-option',
+  ADD_COMMENT_FORM = 'add-comment-form',
+}
+
+export enum POST_MENU_OPTIONS {
+  EDIT_POST = 'Edit Post',
+  REMOVE_POST = 'Remove Post',
 }
 
