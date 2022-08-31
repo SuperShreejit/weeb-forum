@@ -13,7 +13,7 @@ import NavLink from './NavLink'
 import Paragraph from './Paragraph'
 import PostMenu from './PostMenu'
 
-type PostType = {
+export type PostType = {
 	id: string
 	authorId: {
 		id: string

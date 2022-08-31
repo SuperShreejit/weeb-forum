@@ -8,4 +8,6 @@ export enum PAGE_CONTAINER_CLASS {
   FORGOT_PASSWORD = 'forgot-password-container',
   PAGE_NOT_FOUND = 'not-found-container',
   FORBIDDEN = 'forbidden-container',
+  TIMELINE = 'timeline-container',
+  PROFILE = 'profile-container',
 }

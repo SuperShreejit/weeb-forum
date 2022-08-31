@@ -148,7 +148,7 @@ export const getPosts = async (req: Request, res: Response) => {
 		const posts = await findRecentPosts()
 		res.json({
 			success: true,
-			posts: posts.length > 0 ? posts : ERRORS.POSTS_NOT_FOUND,
+			posts: posts.length > 0 ? posts : [],
 		})
 	} catch (error) {
 		errorHandler(error, res)

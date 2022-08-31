@@ -39,7 +39,7 @@ type GoogleUserType =
 const GoogleStrategy = GoogleStrategyModule.Strategy
 const googleOptions: GoogleStrategyModule.StrategyOptions = {
 	clientID: process.env.GOOGLE_OAUTH_CLIENT_ID as string,
-	clientSecret: process.env.GOOGLE_OAUTH_CLIENT_SECRECT as string,
+	clientSecret: process.env.GOOGLE_OAUTH_CLIENT_SECRET as string,
 	callbackURL:
 		ROUTES.SERVER_URL_BASE + ROUTES.AUTH_BASE + ROUTES.AUTH_GOOGLE_REDIRECT,
 }
