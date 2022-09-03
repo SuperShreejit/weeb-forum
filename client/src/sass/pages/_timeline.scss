@@ -1,0 +1,44 @@
+@import '../utils/flex';
+@import '../utils/variables';
+@import '../utils/media';
+
+//light
+.timeline-container {
+  background-color: light(on-secondary);
+	@include flex(column, center, center, 2em);
+	padding: $timeline-padding-mobile;
+	padding-top: $topbar-height-mobile;
+  padding-left: $sidebar-width-mobile;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+//dark
+.dark {
+  background-color: dark(on-secondary);
+}
+
+//media queries
+@include media-tablet {
+	.timeline-container {
+		padding: $timeline-padding-tablet;
+		padding-top: $topbar-height-tablet;
+    padding-left: $sidebar-width-tablet;
+	}
+}
+
+@include media-laptop {
+	.timeline-container {
+		padding: $timeline-padding-laptop;
+		padding-top: $topbar-height-laptop;
+    padding-left: $sidebar-width-laptop;
+	}
+}
+
+@include media-desktop {
+	.timeline-container {
+		padding: $timeline-padding-desktop;
+		padding-top: $topbar-height-desktop;
+    padding-left: $sidebar-width-desktop;
+	}
+}
