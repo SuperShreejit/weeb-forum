@@ -1,0 +1,21 @@
+@import '../utils/flex';
+@import '../utils/media';
+@import '../utils/pallete';
+
+//light
+.profile-head-container {
+	background-color: light(neutral);
+	@include flex(column, center, center, 1em);
+  padding: 1em;
+
+  .flex-vertical {
+    padding: 1em;
+  }
+}
+
+//dark
+.dark {
+	.profile-head-container {
+		background-color: dark(neutral);
+	}
+}

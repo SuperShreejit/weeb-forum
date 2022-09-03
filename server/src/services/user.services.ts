@@ -23,7 +23,7 @@ export const findSingleAvatar = async (query: UserFilterQueryType) =>
 
 export const findUserWithAvatar = async (id: string | Types.ObjectId) =>
 	await User.findById(id)
-		.select(['name', 'username', 'email', 'authType'])
+		.select(['name', 'username', 'email', 'authType', 'createdAt'])
 		.populate<{ avatarId: AvatarDocument }>({
 			path: 'avatarId',
 			select: 'avatar mimeType filename',

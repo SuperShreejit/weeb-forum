@@ -66,7 +66,7 @@ export enum SERVER_ROUTES {
 	DELETE_COMMENT = '/delete-comment/:commentId',
 	GET_POST = '/:postId',
 	GET_POSTS = '/',
-	GET_USER_POSTS = '/user/:userId',
+	GET_USER_POSTS = '/user/',
 	LIKE_POST = '/like-post/:userId/:postId',
 	DISLIKE_POST = '/dislike-post/:userId/:postId',
 	LIKE_COMMENT = '/like-comment/:userId/:commentId',

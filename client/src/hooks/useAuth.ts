@@ -9,13 +9,14 @@ import axiosServer from '../lib/axios'
 import useNavigation from './useNavigations'
 import { AxiosResponse } from 'axios'
 
-type UserType = {
+export type UserType = {
 	user: {
-		id: string
+		_id: string
 		name: string
 		username: string
 		email: string
 		authType: string
+		createdAt: string
 		avatarId: {
 			id: string
 			avatar: string
@@ -38,7 +39,7 @@ const useAuth = () => {
 					SERVER_ROUTES.AUTH_BASE + SERVER_ROUTES.AUTH_CURRENT_USER,
 				)
 				.then((res: AxiosResponse<UserType, any>) => {
-					dispatch(login(res.data.user.id))
+					dispatch(login(res.data.user._id))
 					return res
 				}),
 	)

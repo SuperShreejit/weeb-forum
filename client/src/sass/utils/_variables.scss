@@ -30,6 +30,10 @@ $sidebar-top-tablet: 3.25em;
 $sidebar-top-laptop: 4em;
 $sidebar-top-desktop: 4em;
 $navbar-padding: 1em 0;
+$sidebar-width-mobile: 0;
+$sidebar-width-tablet: 11em;
+$sidebar-width-laptop: 18em;
+$sidebar-width-desktop: 24em;
 
 //pages
 //landing
@@ -74,3 +78,8 @@ $forbidden-padding-tablet: 0 2em;
 $forbidden-padding-laptop: 0 2em;
 $forbidden-padding-desktop: 0 2em;
 
+//profile
+$profile-padding-mobile: 0 1em;
+$profile-padding-tablet: 0 2em;
+$profile-padding-laptop: 0 2em;
+$profile-padding-desktop: 0 2em;

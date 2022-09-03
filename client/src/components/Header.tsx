@@ -1,12 +1,12 @@
 import '../sass/components/_headers.scss'
 import { HEADERS, HEADER_VARIANT, HEADER_CLASSES } from '../constants/header'
-import { ELEMENTS } from '../constants/component';
+import { ELEMENTS } from '../constants/component'
 
 type HeaderProps = (
 	| JSX.IntrinsicElements[ELEMENTS.H2]
 	| JSX.IntrinsicElements[ELEMENTS.H3]
 	| JSX.IntrinsicElements[ELEMENTS.H4]
-) & { variant: HEADER_VARIANT; text: HEADERS }
+) & { variant: HEADER_VARIANT; text: HEADERS | string }
 
 const Header = ({ variant, text, ...rest }: HeaderProps) => {
 	switch (variant) {

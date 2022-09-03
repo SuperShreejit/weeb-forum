@@ -1,0 +1,21 @@
+@import '../utils/flex';
+@import '../utils/pallete';
+
+.section-title {
+	@include flex(row, center, center, 1em);
+
+	.section-title-line {
+		width: 100px;
+		height: 1px;
+		background-color: light(secondary);
+    opacity: 0.5;
+	}
+}
+
+.dark {
+	.section-title {
+		.section-title-line {
+			background-color: dark(secondary);
+		}
+	}
+}

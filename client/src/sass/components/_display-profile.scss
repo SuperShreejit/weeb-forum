@@ -1,0 +1,13 @@
+@import '../utils/prefixors';
+@import '../utils/media';
+
+.display-img-container {
+	@include border-radius(50%);
+  width: 50%;
+  overflow: hidden;
+
+	.display-img {
+		width: 100%;
+    @include object-fit-position(cover, center);
+	}
+}

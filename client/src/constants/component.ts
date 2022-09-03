@@ -22,3 +22,9 @@ export enum ELEMENTS {
   LINK = 'a',
   TEXTAREA = 'textarea',
 }
+
+export const SECTION_TITLE_CLASS = 'section-title'
+export const SECTION_TITLE_LINE = 'section-title-line'
+export enum SECTION_TITLE {
+  POSTS = 'Posts',
+}

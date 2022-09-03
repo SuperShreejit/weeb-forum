@@ -1,0 +1,46 @@
+@import '../utils/flex';
+@import '../utils/variables';
+@import '../utils/media';
+@import '../utils/pallete';
+@import '../utils/prefixors';
+
+//light
+.profile-container {
+  background-color: light(on-secondary);
+	@include flex(column, center, center, 2em);
+	padding: $profile-padding-mobile;
+	padding-top: $topbar-height-mobile;
+  padding-left: $sidebar-width-mobile;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+//dark
+.dark {
+  background-color: dark(on-secondary);
+}
+
+//media queries
+@include media-tablet {
+	.profile-container {
+		padding: $profile-padding-tablet;
+		padding-top: $topbar-height-tablet;
+    padding-left: $sidebar-width-tablet;
+	}
+}
+
+@include media-laptop {
+	.profile-container {
+		padding: $profile-padding-laptop;
+		padding-top: $topbar-height-laptop;
+    padding-left: $sidebar-width-laptop;
+	}
+}
+
+@include media-desktop {
+	.profile-container {
+		padding: $profile-padding-desktop;
+		padding-top: $topbar-height-desktop;
+    padding-left: $sidebar-width-desktop;
+	}
+}
