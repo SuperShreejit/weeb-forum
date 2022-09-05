@@ -27,12 +27,20 @@ const useNavigation = () => {
 		[navigate],
 	)
 
+	const navigateToPost = useCallback(
+		(postId: string) =>
+			navigate(`${CLIENT_ROUTES.AUTH_BASE}/${CLIENT_ROUTES.VIEW_POST}/${postId}
+`),
+		[navigate],
+	)
+
 	return {
 		navigateToSignUp,
 		navigateToSignIn,
 		goBack,
 		navigateToEmailVerify,
 		navigateToTimeline,
+		navigateToPost,
 	}
 }
 

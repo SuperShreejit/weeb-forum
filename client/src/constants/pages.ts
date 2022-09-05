@@ -10,4 +10,7 @@ export enum PAGE_CONTAINER_CLASS {
   FORBIDDEN = 'forbidden-container',
   TIMELINE = 'timeline-container',
   PROFILE = 'profile-container',
+  CREATE_POST = 'create-post-container',
+  EDIT_POST = 'edit-post-container',
+  VIEW_POST = 'view-post-container',
 }

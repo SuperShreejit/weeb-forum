@@ -1,0 +1,78 @@
+@import '../utils/flex';
+@import '../utils/media';
+@import '../utils/pallete';
+@import '../utils/variables';
+
+//light
+.create-post-container {
+	background-color: light(neutral);
+	@include flex(column, center, center, 2em);
+	padding: $create-post-padding-mobile;
+	padding-top: $topbar-height-mobile;
+	padding-left: $sidebar-width-mobile;
+	height: 100vh;
+	overflow-y: scroll;
+
+	.flex-vertical {
+		align-items: center;
+	}
+
+	.form {
+		padding-bottom: 1em;
+	}
+
+	.bg-img-container {
+		display: none;
+	}
+}
+
+//dark
+.dark {
+	background-color: dark(neutral);
+}
+
+//media-queries
+@include media-tablet {
+	.create-post-container {
+		padding: $create-post-padding-tablet;
+		padding-top: $topbar-height-tablet;
+		padding-left: $sidebar-width-tablet;
+
+		.bg-img-container {
+			@include flex(row, center, center);
+			width: 80%;
+
+			.bg-img {
+				display: block;
+			}
+		}
+	}
+}
+
+@include media-laptop {
+	.create-post-container {
+		padding: $create-post-padding-laptop;
+		padding-top: $topbar-height-laptop;
+		padding-left: $sidebar-width-laptop;
+		@include flex(row, center, center, 2em);
+
+		.bg-img-container {
+			@include flex(row, center, center);
+			width: 50%;
+		}
+	}
+}
+
+@include media-desktop {
+	.create-post-container {
+		padding: $create-post-padding-desktop;
+		padding-top: $topbar-height-desktop;
+		padding-left: $sidebar-width-desktop;
+		overflow: hidden;
+
+		.bg-img-container {
+			@include flex(row, center, center);
+			width: 50%;
+		}
+	}
+}

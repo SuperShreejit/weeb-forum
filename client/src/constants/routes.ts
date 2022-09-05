@@ -58,7 +58,7 @@ export enum SERVER_ROUTES {
 
 	//post
 	POSTS_BASE = '/posts',
-	CREATE_POST = '/create-post/:userId',
+	CREATE_POST = '/create-post/',
 	CREATE_COMMENT = '/create-comment/:userId/:postId',
 	UPDATE_POST = '/update-post/:postId',
 	UPDATE_COMMENT = '/update-comment/:commentId',

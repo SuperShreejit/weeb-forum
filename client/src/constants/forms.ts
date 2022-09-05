@@ -117,6 +117,8 @@ export enum FORM_ERRORS {
 	MISSING_NAME = 'Name cannot be empty',
 	MISSING_OTP = 'OTP cannot be empty',
 	MISSING_COMMENT = 'Comment cannot be empty',
+	MISSING_TITLE = 'Title cannot be empty',
+	MISSING_POST = 'Post cannot be empty',
 	INVALID_USERNAME = 'Must be a valid username',
 	INVALID_PASSWORD = 'Must be a valid password',
 	INVALID_OTP = 'Must be a valid OTP',

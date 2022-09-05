@@ -38,9 +38,9 @@ export const createPost = async (req: Request, res: Response) => {
 			post,
 			keys,
 		}
-		await postCreate(newPost)
+		const createdPost = await postCreate(newPost)
 
-		res.json({ success: true })
+		res.json({ success: true, post: createdPost })
 	} catch (error) {
 		errorHandler(error, res)
 	}
