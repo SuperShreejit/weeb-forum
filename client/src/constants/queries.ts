@@ -2,6 +2,7 @@ export enum QUERIES {
   USER_PROFILE = 'user-profile',
   REGISTER = 'user-register',
   TIMELINE = 'user-timeline',
+  VIEW_POST = 'post',
 }
 
 export enum QUERY_ERRORS {

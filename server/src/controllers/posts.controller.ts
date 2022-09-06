@@ -78,9 +78,9 @@ export const updatePost = async (req: Request, res: Response) => {
 			throw new CustomError(ERRORS.POST_NOT_FOUND, StatusCodes.NOT_FOUND)
 
 		const update = { title, post, keys }
-		await editPost(post_saved.id, update)
+		const updatedPost = await editPost(post_saved.id, update)
 
-		res.json({ success: true })
+		res.json({ success: true, post: updatedPost })
 	} catch (error) {
 		errorHandler(error, res)
 	}
@@ -94,9 +94,9 @@ export const updateComment = async (req: Request, res: Response) => {
 			throw new CustomError(ERRORS.COMMENT_NOT_FOUND, StatusCodes.NOT_FOUND)
 
 		const update = { comment }
-		await editComment(comment_saved.id, update)
+		const updatedComment = await editComment(comment_saved.id, update)
 
-		res.json({ success: true })
+		res.json({ success: true, comment: updatedComment })
 	} catch (error) {
 		errorHandler(error, res)
 	}
