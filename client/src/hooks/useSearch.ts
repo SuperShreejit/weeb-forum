@@ -4,34 +4,34 @@ import { PostType } from '../components/Post'
 import { QUERIES, queryOptions } from '../constants/queries'
 import { SERVER_ROUTES } from '../constants/routes'
 import axiosServer from '../lib/axios'
+import { UserType } from './useAuth'
 
-type TimelineSuccessResponseType = {
-	success: true
-	posts: PostType[] | []
+type SearchSuccessResponseType = {
+success: true
+result : PostType[] | UserType[] | []
 }
 
-type TimelineFailResponseType = {
-	success: false
-	msg: string
+type SearchFailResponseType = {
+  success: false
+  msg: string
 }
 
-const useTimeline = () => {
-	return useQuery(
-		[QUERIES.TIMELINE],
+const useSearch = () =>
+	useQuery(
+		[QUERIES.SEARCH],
 		() =>
 			axiosServer
-				.get<TimelineSuccessResponseType>(
+				.get<SearchSuccessResponseType>(
 					SERVER_ROUTES.POSTS_BASE + SERVER_ROUTES.GET_POSTS,
 				)
 				.then(res => res)
 				.catch((error: Error | AxiosError) => {
 					if (axios.isAxiosError(error) && error.response)
-						return error.response as AxiosResponse<TimelineFailResponseType>
+						return error.response as AxiosResponse<SearchFailResponseType>
 					else if (axios.isAxiosError(error) && error.request)
 						return error.message
 				}),
 		queryOptions,
 	)
-}
 
-export default useTimeline
+export default useSearch

@@ -108,6 +108,7 @@ export enum SUCCESS_MESSAGE {
 	DELETE_POST = 'Successfully Delete Post!',
 	DELETE_COMMENT = 'Successfully Delete Comment!',
 	SEND_OTP = 'Successfully OTP Sent to the email provided!',
+	SEARCH = 'Successfully Searched!',
 }
 
 export enum FORM_ERRORS {
@@ -131,6 +132,8 @@ export enum FORM_ERRORS {
 	PASSWORD_OTHERS_SAME = 'Password must not match name, username or email',
 	USERNAME_OTHERS_SAME = 'Username must not match password or email',
 	PASSWORD_DIFFERENT = 'Passwords must match',
+	MISSING_SEARCH = 'Missing search text',
+	MISSING_CONTENT = 'Missing search type',
 }
 
 export const REGEX = {

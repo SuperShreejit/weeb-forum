@@ -3,6 +3,7 @@ export enum QUERIES {
   REGISTER = 'user-register',
   TIMELINE = 'user-timeline',
   VIEW_POST = 'post',
+  SEARCH = 'search',
 }
 
 export enum QUERY_ERRORS {
