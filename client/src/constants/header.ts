@@ -20,6 +20,7 @@ export enum HEADERS {
   DEACTIVATE = 'Deactivate User',
   CONFIRMATION = 'Confirmation',
   CREATE_POST = 'Create Post',
+  EDIT_POST = 'Edit Post',
 }
 
 export enum HEADER_VARIANT {

@@ -26,8 +26,7 @@ export type ViewPostFailResponseType = {
 	msg: string
 }
 
-const useViewPost = (postId: string) => {
-	return useQuery(
+const useViewPost = (postId: string) => useQuery(
 		[`${QUERIES.VIEW_POST}-${postId}`],
 		() =>
 			axiosServer
@@ -43,6 +42,5 @@ const useViewPost = (postId: string) => {
 				}),
 		queryOptions,
 	)
-}
 
 export default useViewPost
