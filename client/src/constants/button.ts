@@ -50,6 +50,7 @@ export enum BUTTON_LABELS {
   BACK = 'Back',
   VERIFY_EMAIL = 'Verify Email',
   RESET_PASSWORD = 'Reset Password',
+  SEARCH = 'Search',
 }
 
 export enum BUTTON_TYPES {

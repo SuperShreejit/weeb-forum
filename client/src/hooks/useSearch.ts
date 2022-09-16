@@ -4,25 +4,28 @@ import { PostType } from '../components/Post'
 import { QUERIES, queryOptions } from '../constants/queries'
 import { SERVER_ROUTES } from '../constants/routes'
 import axiosServer from '../lib/axios'
-import { UserType } from './useAuth'
+import { SearchDataType } from '../validations/search'
 
 type SearchSuccessResponseType = {
-success: true
-result : PostType[] | UserType[] | []
+	success: true
+	result: PostType[] | []
 }
 
 type SearchFailResponseType = {
-  success: false
-  msg: string
+	success: false
+	msg: string
 }
 
-const useSearch = () =>
+const useSearch = (data: SearchDataType) =>
 	useQuery(
 		[QUERIES.SEARCH],
 		() =>
 			axiosServer
 				.get<SearchSuccessResponseType>(
-					SERVER_ROUTES.POSTS_BASE + SERVER_ROUTES.GET_POSTS,
+					SERVER_ROUTES.POSTS_BASE +
+						SERVER_ROUTES.GET_POSTS +
+						'?search=' +
+						data.search,
 				)
 				.then(res => res)
 				.catch((error: Error | AxiosError) => {

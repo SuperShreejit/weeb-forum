@@ -25,19 +25,23 @@ import FormAlert from './FormAlert'
 import FormControl from './FormControl'
 
 const SearchForm = () => {
-	const { isError, error, isLoading, isSuccess, data } = useSearch()
+	const onSubmit = useCallback((data: SearchDataType) => {}, [])
 
-	const onSubmit = useCallback(
-		(values: SearchDataType) => mutate(values),
-		[mutate],
-	)
+	const {
+		handleSubmit,
+		dirty,
+		isValid,
+		errors,
+		touched,
+		getFieldProps,
+		values,
+	} = useFormik({
+		initialValues: searchInitialValues,
+		onSubmit,
+		validationSchema: searchValidationSchema,
+	})
 
-	const { handleSubmit, dirty, isValid, errors, touched, getFieldProps } =
-		useFormik({
-			initialValues: searchInitialValues,
-			onSubmit,
-			validationSchema: searchValidationSchema,
-		})
+	const { isError, error, isLoading, isSuccess, data } = useSearch(values)
 
 	return (
 		<form className={FORM_CLASS} onSubmit={handleSubmit}>
@@ -51,32 +55,19 @@ const SearchForm = () => {
 				name={FIELD_NAMES.SEARCH}
 			/>
 
-			<FormControl
-				error={errors.content}
-				label={LABELS.POST}
-				placeholder={PLACEHOLDERS.POST}
-				touched={touched.content}
-				variant={FIELD_CONTROL_VARIANT.TEXT}
-				{...getFieldProps(FIELD_NAMES.POST)}
-				name={FIELD_NAMES.POST}
-			/>
-
 			{isError && <FormAlert errorMsg={getError(error) as string} />}
-			{isSuccess && typeof data !== 'string' && !data.data.success && (
-				<FormAlert errorMsg={data.data.msg} />
-			)}
-			{isSuccess && typeof data !== 'string' && data.data.success && (
-				<FormAlert successMsg={SUCCESS_MESSAGE.CREATE_POST} />
-			)}
+			{isSuccess &&
+				typeof data !== 'string' &&
+				data?.data.success === false && <FormAlert errorMsg={data?.data.msg} />}
 
 			<Button
 				type={BUTTON_TYPES.SUBMIT}
-				label={BUTTON_LABELS.REGISTER}
+				label={BUTTON_LABELS.SEARCH}
 				variant={BUTTON_VARIANT.PRIMARY_ELEVATED_ROUNDED}
 				disabled={
 					!(isValid && dirty) ||
 					isLoading ||
-					(typeof data !== 'string' && isSuccess && data.data.success)
+					(typeof data !== 'string' && isSuccess && data?.data.success)
 				}
 			/>
 		</form>
