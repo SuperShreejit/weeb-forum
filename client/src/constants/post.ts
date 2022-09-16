@@ -14,6 +14,7 @@ export enum POST_CLASSES {
   POST_MENU_OPTION = 'post-menu-option',
   POST_MENU_DELETE_OPTION = 'post-menu-remove-option',
   ADD_COMMENT_FORM = 'add-comment-form',
+  NO_POSTS = 'No Posts were found!',
 }
 
 export enum POST_MENU_OPTIONS {

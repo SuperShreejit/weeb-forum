@@ -13,4 +13,5 @@ export enum PAGE_CONTAINER_CLASS {
   CREATE_POST = 'create-post-container',
   EDIT_POST = 'edit-post-container',
   VIEW_POST = 'view-post-container',
+  SEARCH = 'search-container',
 }
