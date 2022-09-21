@@ -22,3 +22,8 @@ export enum POST_MENU_OPTIONS {
   REMOVE_POST = 'Remove Post',
 }
 
+export enum COMMENT_CLASSES {
+  COMMENT = 'comment',
+  COMMENT_LIKE = 'comment-like',
+  COMMENT_DISLIKE = 'comment-dislike',
+}

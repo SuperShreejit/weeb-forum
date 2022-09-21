@@ -4,11 +4,41 @@ import { QUERIES, queryOptions } from '../constants/queries'
 import { SERVER_ROUTES } from '../constants/routes'
 import axiosServer from '../lib/axios'
 
+export type CommentType = {
+	id: string
+	postId: string
+	authorId: {
+		id: string
+		name: string
+		avatarId: {
+			id: string
+			avatar: string
+			mimeType: string
+			filename: string
+		}
+	}
+	comment: string
+	likes: number
+	likers: string[]
+	dislikes: number
+	dislikers: string[]
+	createdAt: string
+}
+
 export type ViewPostSuccessResponseType = {
 	success: true
 	post: {
 		id: string
-		authorId: string
+		authorId: {
+			id: string
+			name: string
+			avatarId: {
+				id: string
+				avatar: string
+				mimeType: string
+				filename: string
+			}
+		}
 		title: string
 		post: string
 		likes: number
@@ -16,8 +46,9 @@ export type ViewPostSuccessResponseType = {
 		dislikes: number
 		dislikers: string[]
 		commentCount: number
-		comments: string[]
+		comments: CommentType[]
 		keys: string[]
+		createdAt: string
 	}
 }
 
