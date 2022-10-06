@@ -1,0 +1,56 @@
+@import '../utils/flex';
+@import '../utils/media';
+@import '../utils/pallete';
+@import '../utils/variables';
+
+//light
+.view-post-container {
+	background-color: light(neutral);
+	@include flex(column, center, center, 2em);
+	padding: $view-post-padding-mobile;
+	padding-top: $topbar-height-mobile;
+	padding-left: $sidebar-width-mobile;
+	height: 100vh;
+	overflow-y: scroll;
+
+	.flex-vertical {
+		align-items: center;
+	}
+
+	.form {
+		padding-bottom: 1em;
+	}
+
+}
+
+//dark
+.dark {
+	background-color: dark(neutral);
+}
+
+//media-queries
+@include media-tablet {
+	.view-post-container {
+		padding: $view-post-padding-tablet;
+		padding-top: $topbar-height-tablet;
+		padding-left: $sidebar-width-tablet;
+	}
+}
+
+@include media-laptop {
+	.view-post-container {
+		padding: $view-post-padding-laptop;
+		padding-top: $topbar-height-laptop;
+		padding-left: $sidebar-width-laptop;
+		@include flex(row, center, center, 2em);
+	}
+}
+
+@include media-desktop {
+	.view-post-container {
+		padding: $view-post-padding-desktop;
+		padding-top: $topbar-height-desktop;
+		padding-left: $sidebar-width-desktop;
+		overflow: hidden;
+	}
+}

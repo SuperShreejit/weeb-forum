@@ -4,13 +4,13 @@ import Post from '../components/Post'
 import { DARK_CLASS, PAGE_CONTAINER_CLASS } from '../constants/pages'
 import useTheme from '../hooks/useTheme'
 import useViewPost from '../hooks/useViewPost'
-import { useMemo } from 'react'
 import FormAlert from '../components/FormAlert'
+import '../sass/pages/_view-post.scss'
 
 const ViewPost = () => {
   const { isDark } = useTheme()
 	const { postId } = useParams()
-  const { data, error, isError, isSuccess } = useViewPost(postId)
+  const { data, error, isError } = useViewPost(postId as string)
 
   if (!data || isError || typeof data === 'string') return (
     <main
@@ -45,8 +45,8 @@ const ViewPost = () => {
 					: PAGE_CONTAINER_CLASS.VIEW_POST
 			}
 		>
-			<Post post={data.data.success === true && data.data.post} />
-			<Comments comments={postData?.comments} />
+			<Post post={data?.data.post} />
+			<Comments comments={data?.data.post.comments} />
 		</main>
 	)
 }

@@ -7,6 +7,7 @@ import { POST_CLASSES } from '../constants/post'
 import { CLIENT_ROUTES } from '../constants/routes'
 import generateImageSource from '../helpers/generateImageSource'
 import useAuth from '../hooks/useAuth'
+import { CommentType } from '../hooks/useViewPost'
 import AddComment from './AddComment'
 import IconButton from './IconButton'
 import NavLink from './NavLink'
@@ -33,25 +34,7 @@ export type PostType = {
 	dislikes: number
 	dislikers: string[]
 	commentCount: number
-	comments: {
-		id: string
-		postId: string
-		authorId: {
-			id: string
-			name: string
-			avatarId: {
-				id: string
-				filename: string
-				mimeType: string
-				avatar: string
-			}
-		}
-		comment: string
-		likes: number
-		likers: string[]
-		dislikes: number
-		dislikers: string[]
-	}
+	comments: CommentType[]
 }
 
 const Post = ({ post }: { post: PostType }) => {

@@ -14,4 +14,6 @@ export enum PAGE_CONTAINER_CLASS {
   EDIT_POST = 'edit-post-container',
   VIEW_POST = 'view-post-container',
   SEARCH = 'search-container',
+  NOTIFICATIONS = 'notifications-container',
+  SETTINGS = 'settings-container',
 }
