@@ -5,6 +5,7 @@ import { useState } from 'react'
 import useSearch from '../hooks/useSearch'
 import FormAlert from '../components/FormAlert'
 import getError from '../helpers/getError'
+import '../sass/pages/_search.scss'
 
 const Search = () => {
 	const [search, setSearch] = useState<string>('')

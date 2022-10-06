@@ -54,7 +54,7 @@ export enum SERVER_ROUTES {
 	CHANGE_USERNAME = '/change-username/:userId',
 	DEACTIVATE_USER = '/deactivate/:userId',
 	GET_USERS = '/',
-	GET_USER = '/:userId',
+	GET_USER = '/',
 
 	//post
 	POSTS_BASE = '/posts',
