@@ -4,6 +4,7 @@ export enum FIELD_CONTROL_VARIANT {
 	EMAIL = 'email',
 	PASSWORD = 'password',
 	DATE = 'date',
+	IMAGE = 'image',
 }
 
 export enum FIELD_CLASSES {
@@ -66,6 +67,7 @@ export enum PLACEHOLDERS {
 	KEYS = 'Please enter suitable post hashtags or keywords',
 	SEARCH = 'Please enter a search Keyword',
 	OTP = 'Please enter the OTP',
+	AVATAR = 'Please upload your avatar image',
 }
 
 export const FIELD_HINTS = {
