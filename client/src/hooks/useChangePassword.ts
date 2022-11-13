@@ -1,6 +1,5 @@
 import { useMutation } from '@tanstack/react-query'
 import axios, { AxiosError, AxiosResponse } from 'axios'
-import React from 'react'
 import { SERVER_ROUTES } from '../constants/routes'
 import axiosServer from '../lib/axios'
 import { ChangePasswordType } from '../validations/changePassword'

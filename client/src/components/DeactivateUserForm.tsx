@@ -13,6 +13,7 @@ import {
 	PLACEHOLDERS,
 	SUCCESS_MESSAGE,
 } from '../constants/forms'
+import { HEADERS, HEADER_VARIANT } from '../constants/header'
 import getError from '../helpers/getError'
 import useAuth from '../hooks/useAuth'
 import useDeactivateUser from '../hooks/useDeactivateUser'
@@ -26,6 +27,7 @@ import {
 import Button from './Button'
 import FormAlert from './FormAlert'
 import FormControl from './FormControl'
+import Header from './Header'
 
 const DeactivateUserForm = () => {
 	const { userId } = useAuth()
@@ -65,11 +67,27 @@ const DeactivateUserForm = () => {
 
 	return (
 		<form className={FORM_CLASS} onSubmit={handleSubmit}>
+			<Header text={HEADERS.DEACTIVATE} variant={HEADER_VARIANT.SECONDARY_H3} />
 			<Button
 				type={BUTTON_TYPES.BUTTON}
 				label={BUTTON_LABELS.SEND_OTP}
 				variant={BUTTON_VARIANT.PRIMARY_ELEVATED_ROUNDED}
 			/>
+
+			{sendDeactivateIsError && (
+				<FormAlert errorMsg={getError(sendDeactivateError) as string} />
+			)}
+			{sendDeactivateIsSuccess &&
+				typeof sendDeactivateData !== 'string' &&
+				sendDeactivateData?.data.success === false && (
+					<FormAlert errorMsg={sendDeactivateData?.data.msg} />
+				)}
+			{sendDeactivateIsSuccess &&
+				typeof sendDeactivateData !== 'string' &&
+				sendDeactivateData?.data.success === true && (
+					<FormAlert successMsg={SUCCESS_MESSAGE.SEND_OTP} />
+				)}
+
 			<FormControl
 				error={errors.otp}
 				label={LABELS.OTP}
@@ -97,19 +115,6 @@ const DeactivateUserForm = () => {
 			{isSuccess && typeof data !== 'string' && data.data.success && (
 				<FormAlert successMsg={SUCCESS_MESSAGE.DEACTIVATE} />
 			)}
-			{sendDeactivateIsError && (
-				<FormAlert errorMsg={getError(sendDeactivateError) as string} />
-			)}
-			{sendDeactivateIsSuccess &&
-				typeof sendDeactivateData !== 'string' &&
-				sendDeactivateData?.data.success === false && (
-					<FormAlert errorMsg={sendDeactivateData?.data.msg} />
-				)}
-			{sendDeactivateIsSuccess &&
-				typeof sendDeactivateData !== 'string' &&
-				sendDeactivateData?.data.success && (
-					<FormAlert successMsg={SUCCESS_MESSAGE.DEACTIVATE} />
-				)}
 
 			<Button
 				type={BUTTON_TYPES.SUBMIT}

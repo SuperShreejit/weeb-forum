@@ -13,6 +13,7 @@ import {
 	PLACEHOLDERS,
 	SUCCESS_MESSAGE,
 } from '../constants/forms'
+import { HEADERS, HEADER_VARIANT } from '../constants/header'
 import getError from '../helpers/getError'
 import useAuth from '../hooks/useAuth'
 import useChangeUsername from '../hooks/useChangeUsername'
@@ -24,6 +25,7 @@ import {
 import Button from './Button'
 import FormAlert from './FormAlert'
 import FormControl from './FormControl'
+import Header from './Header'
 
 const ChangeUsernameForm = () => {
 	const { userId } = useAuth()
@@ -44,6 +46,7 @@ const ChangeUsernameForm = () => {
 
 	return (
 		<form className={FORM_CLASS} onSubmit={handleSubmit}>
+			<Header text={HEADERS.CHANGE_USERNAME} variant={HEADER_VARIANT.SECONDARY_H3} />
 			<FormControl
 				error={errors.username}
 				label={LABELS.USERNAME}

@@ -23,6 +23,8 @@ import {
 	initialChangeAvatarValues,
 } from '../validations/changeAvatart'
 import FormControl from './FormControl'
+import Header from './Header'
+import { HEADERS, HEADER_VARIANT } from '../constants/header'
 
 const ChangeAvatarForm = () => {
 	const { userId } = useAuth()
@@ -47,6 +49,11 @@ const ChangeAvatarForm = () => {
 			onSubmit={handleSubmit}
 			encType='multipart/form-data'
 		>
+			<Header
+				text={HEADERS.CHANGE_AVATAR}
+				variant={HEADER_VARIANT.SECONDARY_H3}
+			/>
+			
 			<FormControl
 				error={errors.avatar}
 				label={LABELS.AVATAR}

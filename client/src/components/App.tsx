@@ -13,7 +13,6 @@ import ViewPost from '../pages/ViewPost'
 import EditPost from '../pages/EditPost'
 import TimeLine from '../pages/TimeLine'
 import Profile from '../pages/Profile'
-import UserSettings from '../pages/UserSettings'
 import Search from '../pages/Search'
 import Notifications from '../pages/Notifications'
 import PrivacyPolicy from '../pages/PrivacyPolicy'
@@ -21,6 +20,7 @@ import TermsConditions from '../pages/TermsConditions'
 import PublicLayout from '../pages/PublicLayout'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import ViewUser from '../pages/ViewUser'
+import Settings from '../pages/Settings'
 
 const App = () => (
 	<Router>
@@ -32,7 +32,7 @@ const App = () => (
 				<Route path={CLIENT_ROUTES.EDIT_POST} element={<EditPost />} />
 				<Route path={CLIENT_ROUTES.TIMELINE} element={<TimeLine />} />
 				<Route path={CLIENT_ROUTES.PROFILE} element={<Profile />} />
-				<Route path={CLIENT_ROUTES.SETTINGS} element={<UserSettings />} />
+				<Route path={CLIENT_ROUTES.SETTINGS} element={<Settings />} />
 				<Route path={CLIENT_ROUTES.SEARCH} element={<Search />} />
 				<Route path={CLIENT_ROUTES.NOTIFICATIONS} element={<Notifications />} />
 				<Route
