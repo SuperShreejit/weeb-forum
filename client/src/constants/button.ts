@@ -42,6 +42,7 @@ export enum BUTTON_LABELS {
   UPDATE = 'Update',
   CHANGE = 'Change',
   DELETE = 'Delete',
+  DEACTIVATE= 'Deactivate',
   VIEW_POST = 'View Full Post',
   FOLLOW = 'Follow',
   UNFOLLOW = 'Unfollow',

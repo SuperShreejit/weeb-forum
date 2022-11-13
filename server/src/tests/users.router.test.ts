@@ -41,6 +41,7 @@ import {
 	chaiPatchWithAvatar,
 	chaiPatchWithAvatarAndAuth,
 	chaiDeleteWithBodyAndAuth,
+	chaiPostWithAuth,
 } from '../services/chai.services'
 
 chai.use(chaiHttp)
@@ -567,7 +568,7 @@ describe('Users Routes Tests', () => {
 				otp,
 				password: userBody.password,
 			}
-			const res = await chaiDeleteWithBody(
+			const res = await chaiPost(
 				ROUTE + TEST_ROUTE.DEACTIVATE_USER + user.id,
 				request
 			)
@@ -579,7 +580,7 @@ describe('Users Routes Tests', () => {
 				otp,
 				password: userBody.password,
 			}
-			const res = await chaiDeleteWithBodyAndAuth(
+			const res = await chaiPostWithAuth(
 				ROUTE + TEST_ROUTE.DEACTIVATE_USER + fakeId,
 				request,
 				cookie
@@ -592,7 +593,7 @@ describe('Users Routes Tests', () => {
 				otp: generateOTP(),
 				password: userBody.password,
 			}
-			const res = await chaiDeleteWithBodyAndAuth(
+			const res = await chaiPostWithAuth(
 				ROUTE + TEST_ROUTE.DEACTIVATE_USER + user.id,
 				request,
 				cookie
@@ -605,7 +606,7 @@ describe('Users Routes Tests', () => {
 				otp,
 				password: updatedPassword,
 			}
-			const res = await chaiDeleteWithBodyAndAuth(
+			const res = await chaiPostWithAuth(
 				ROUTE + TEST_ROUTE.DEACTIVATE_USER + user.id,
 				request,
 				cookie
@@ -622,7 +623,7 @@ describe('Users Routes Tests', () => {
 				otp,
 				password: userBody.password,
 			}
-			const res = await chaiDeleteWithBodyAndAuth(
+			const res = await chaiPostWithAuth(
 				ROUTE + TEST_ROUTE.DEACTIVATE_USER + user.id,
 				request,
 				cookie

@@ -89,7 +89,7 @@ const ResetPassword = () => {
 			/>
 
 			<FormControl
-				error={errors.otp}
+				error={errors.confirmPassword}
 				label={LABELS.CONFIRM_NEW_PASSWORD}
 				placeholder={PLACEHOLDERS.CONFIRM_NEW_PASSWORD}
 				touched={touched.otp}

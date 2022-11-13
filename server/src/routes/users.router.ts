@@ -49,7 +49,7 @@ router
 		isAuthenticated,
 		sendDeactivateUser
 	)
-	.delete(validateRequest(deactivateSchema), isAuthenticated, deactivateUser)
+	.post(validateRequest(deactivateSchema), isAuthenticated, deactivateUser)
 
 router
 	.route(ROUTES.CHANGE_AVATAR)
